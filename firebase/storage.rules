@@ -1,0 +1,16 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // 応募書類のアップロードのみ許可（10MB の履歴書 / 200MB の動画）。閲覧は管理者のみ。
+    match /enquiries/{submissionId}/{fileName} {
+      allow create: if request.resource.size < 200 * 1024 * 1024
+                    && (request.resource.contentType.matches('application/pdf')
+                        || request.resource.contentType.matches('video/.*')
+                        || request.resource.contentType.matches('image/.*'));
+      allow read, update, delete: if false;
+    }
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

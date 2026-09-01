@@ -96,6 +96,11 @@
   .submitrow button{border:1px solid #17181a;border-radius:999px;padding:14px 28px;font-size:13.5px;background:#17181a;color:#fbfbf9}
   .submitrow button:hover{background:#3a3a35}
   .submitrow span{font-size:12px;color:#8d8d87}
+  .fileinput{border:1px solid #dedeD8;border-radius:16px;padding:12px 14px;font-size:13px;background:#fbfbf9;font-family:inherit}
+  .orrow{display:flex;align-items:center;gap:10px;margin-top:10px}
+  .orrow em{font-style:normal;font-size:12px;color:#8d8d87;flex:none}
+  .orrow input{flex:1;border:1px solid #dedeD8;border-radius:999px;padding:11px 16px;font-size:14px;background:#fbfbf9;font-family:inherit}
+  .status{margin:0;font-size:13px;line-height:1.7}
   .fineprint{margin:0;font-size:11.5px;line-height:1.85;color:#9a9a94;max-width:600px;text-wrap:pretty}
   .pill{border:1px solid #17181a;border-radius:999px;padding:13px 24px;font-size:13px;display:inline-block}
   .pill:hover{background:#17181a;color:#fbfbf9}
@@ -361,8 +366,8 @@
           <label class="field" id="fInstagram"><span id="lInstagram"></span><input id="cInstagram" type="url" placeholder="https://www.instagram.com/"></label>
           <label class="field" id="fGithub"><span id="lGithub"></span><input id="cGithub" type="url" placeholder="https://github.com/"></label>
           <label class="field" id="fDribbble"><span id="lDribbble"></span><input id="cDribbble" type="url" placeholder="https://dribbble.com/"></label>
-          <label class="field" id="fCv"><span id="lCv"></span><input id="cCv" type="url" placeholder="https://"></label>
-          <label class="field" id="fVideo"><span id="lVideo"></span><input id="cVideo" type="url" placeholder="https://youtu.be/"></label>
+          <label class="field" id="fCv"><span id="lCv"></span><input id="cCvFile" type="file" accept="application/pdf" class="fileinput"></label>
+          <label class="field" id="fVideo"><span id="lVideo"></span><input id="cVideoFile" type="file" accept="video/*" class="fileinput"><span class="orrow"><em id="lOr"></em><input id="cVideo" type="url" placeholder="https://youtu.be/"></span></label>
           <label class="field" id="fMsg"><span id="lMsg"></span><textarea id="cMsg" rows="6"></textarea></label>
           <label class="consent"><input id="cConsent" type="checkbox"><span id="lConsent"></span></label>
           <label class="consent"><input id="cOptin" type="checkbox"><span id="lOptin"></span></label>
@@ -370,6 +375,7 @@
             <button type="button" id="cSubmit"></button>
             <span id="lNote"></span>
           </div>
+          <p class="status" id="cStatus" hidden></p>
           <p class="fineprint" id="lFine"></p>
         </div>
       </div>
@@ -423,6 +429,10 @@
   </footer>
 </div>
 
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
+<script src="firebase-config.js"></script>
 <script src="data.js"></script>
 <script>
 (function () {
@@ -592,8 +602,9 @@
     document.getElementById('lInstagram').textContent = 'Instagram URL *';
     document.getElementById('lGithub').textContent = t('GitHub URL（任意）', 'GitHub URL (optional)');
     document.getElementById('lDribbble').textContent = t('Dribbble URL（任意）', 'Dribbble URL (optional)');
-    document.getElementById('lCv').textContent = t('履歴書（PDF）のURL *', 'Résumé (PDF) URL *');
-    document.getElementById('lVideo').textContent = t('自己紹介動画のURL（1分以内：自己紹介＋熱意＋希望研究テーマ） *', 'Self-introduction video URL (under 1 min) *');
+    document.getElementById('lCv').textContent = t('履歴書（PDF） *', 'Résumé (PDF) *');
+    document.getElementById('lVideo').textContent = t('自己紹介動画（1分以内：自己紹介＋熱意＋希望研究テーマ） *', 'Self-introduction video (under 1 min) *');
+    document.getElementById('lOr').textContent = t('または', 'or');
     document.getElementById('lMsg').textContent = purpose === 'apply'
       ? t('応募の動機・自己紹介 *', 'Why you are applying, and about you *')
       : t('ご質問・ご相談内容 *', 'Your question *');
@@ -602,7 +613,7 @@
     document.getElementById('lFine').textContent = t("回答には時間がかかることがあります。また、ご希望に添えないこともあります。お問い合わせいただいた内容は、お問い合わせ目的およびその回答のみのために使用します。「今後のアップデートおよびご案内を受信する」にチェックをいただきますと、今後、OZU ResearchおよびOZU Inc.に関連するご連絡をさせていただく場合があります。", "A reply may take some time, and we may be unable to accommodate every request. Your submission is used solely for the stated purpose and our reply. If you check “receive future updates and announcements,” we may contact you about the Uraki–Takahashi Lab and Musashino University’s Faculty of Data Science.");
     document.getElementById('cSubmit').textContent = t('送信する', 'Send');
     document.getElementById('lNote').textContent = purpose === 'apply'
-      ? t('送信するとメールが作成されます。履歴書や動画ファイルはそのメールに添付いただけます。', 'Sending opens a pre-filled email; you can attach your résumé and video to it.')
+      ? t('履歴書と自己紹介動画を添えて送信できます。', 'Attach your résumé and video, then send.')
       : t('送信するとメールが作成されます。', 'Sending opens a pre-filled email.');
     document.getElementById('fOrg').hidden = purpose === 'newsletter';
     ['fPhone','fOrcid','fLinkedin','fInstagram','fGithub','fDribbble','fCv','fVideo'].forEach(function (id) {
@@ -613,38 +624,133 @@
     if (cta) cta.textContent = t('お問い合わせフォーム', 'Contact form');
   }
 
-  function submitContact() {
+  function firebaseReady() {
+    var c = window.OZU_FIREBASE;
+    return !!(c && c.apiKey && c.projectId && window.firebase && firebase.firestore && firebase.storage);
+  }
+
+  var fbApp = null;
+  function fb() {
+    if (!fbApp) fbApp = firebase.initializeApp(window.OZU_FIREBASE);
+    return fbApp;
+  }
+
+  function setStatus(text, tone) {
+    var el = document.getElementById('cStatus');
+    el.hidden = !text;
+    el.textContent = text || '';
+    el.style.color = tone === 'error' ? '#8a2b3c' : '#3a6b4a';
+  }
+
+  function collectForm() {
+    function val(id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; }
+    var optin = document.getElementById('cOptin');
+    var data = {
+      purpose: purpose,
+      lang: lang,
+      name: val('cName'),
+      email: val('cEmail'),
+      optin: !!(optin && optin.checked),
+      page: location.href
+    };
+    if (purpose !== 'newsletter') {
+      data.organisation = val('cOrg');
+      data.message = val('cMsg');
+    }
+    if (purpose === 'apply') {
+      data.phone = val('cPhone');
+      data.orcid = val('cOrcid');
+      data.linkedin = val('cLinkedin');
+      data.instagram = val('cInstagram');
+      data.github = val('cGithub');
+      data.dribbble = val('cDribbble');
+      data.videoLink = val('cVideo');
+    }
+    return data;
+  }
+
+  function validateForm() {
     var ja = lang === 'ja';
     function val(id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; }
     var consent = document.getElementById('cConsent');
-    var name = val('cName'), email = val('cEmail');
-    if (!name || !email) { window.alert(ja ? 'お名前とメールアドレスをご入力ください。' : 'Please enter your name and email.'); return; }
-    if (purpose !== 'newsletter' && !val('cMsg')) { window.alert(ja ? '内容をご入力ください。' : 'Please enter your message.'); return; }
+    if (!val('cName') || !val('cEmail')) { window.alert(ja ? 'お名前とメールアドレスをご入力ください。' : 'Please enter your name and email.'); return false; }
+    if (purpose !== 'newsletter' && !val('cMsg')) { window.alert(ja ? '内容をご入力ください。' : 'Please enter your message.'); return false; }
     if (purpose === 'apply') {
-      var need = [['cPhone', ja ? '携帯電話番号' : 'Mobile phone'], ['cOrcid', 'ORCID URL'], ['cLinkedin', 'LinkedIn URL'], ['cInstagram', 'Instagram URL'], ['cCv', ja ? '履歴書のURL' : 'Résumé URL'], ['cVideo', ja ? '自己紹介動画のURL' : 'Video URL']];
+      var need = [['cPhone', ja ? '携帯電話番号' : 'Mobile phone'], ['cOrcid', 'ORCID URL'], ['cLinkedin', 'LinkedIn URL'], ['cInstagram', 'Instagram URL']];
       for (var i = 0; i < need.length; i++) {
-        if (!val(need[i][0])) { window.alert((ja ? '必須項目をご入力ください：' : 'Please fill in: ') + need[i][1]); return; }
+        if (!val(need[i][0])) { window.alert((ja ? '必須項目をご入力ください：' : 'Please fill in: ') + need[i][1]); return false; }
       }
+      var cv = document.getElementById('cCvFile');
+      if (!cv || !cv.files || !cv.files.length) { window.alert(ja ? '履歴書（PDF）を添付してください。' : 'Please attach your résumé (PDF).'); return false; }
+      var vf = document.getElementById('cVideoFile');
+      if ((!vf || !vf.files || !vf.files.length) && !val('cVideo')) { window.alert(ja ? '自己紹介動画のファイルまたはYouTubeリンクをご指定ください。' : 'Please attach a video file or give a YouTube link.'); return false; }
     }
-    if (!consent || !consent.checked) { window.alert(ja ? '個人情報の取り扱いに同意してください。' : 'Please agree to the handling of your details.'); return; }
+    if (!consent || !consent.checked) { window.alert(ja ? '個人情報の取り扱いに同意してください。' : 'Please agree to the handling of your details.'); return false; }
+    return true;
+  }
+
+  function mailtoFallback(data) {
     var subjects = { question: 'OZU Research — 質問', newsletter: 'OZU Research — ニュースレター登録', apply: 'OZU Research — 応募' };
-    var lines = ['種別: ' + (subjects[purpose] || purpose), 'お名前: ' + name, 'メール: ' + email];
-    if (purpose !== 'newsletter' && val('cOrg')) lines.push('所属: ' + val('cOrg'));
+    var lines = ['種別: ' + (subjects[purpose] || purpose), 'お名前: ' + data.name, 'メール: ' + data.email];
+    if (data.organisation) lines.push('所属: ' + data.organisation);
     if (purpose === 'apply') {
-      lines.push('携帯電話: ' + val('cPhone'));
-      lines.push('ORCID: ' + val('cOrcid'));
-      lines.push('LinkedIn: ' + val('cLinkedin'));
-      lines.push('Instagram: ' + val('cInstagram'));
-      if (val('cGithub')) lines.push('GitHub: ' + val('cGithub'));
-      if (val('cDribbble')) lines.push('Dribbble: ' + val('cDribbble'));
-      lines.push('履歴書: ' + val('cCv'));
-      lines.push('自己紹介動画: ' + val('cVideo'));
+      lines.push('携帯電話: ' + data.phone, 'ORCID: ' + data.orcid, 'LinkedIn: ' + data.linkedin, 'Instagram: ' + data.instagram);
+      if (data.github) lines.push('GitHub: ' + data.github);
+      if (data.dribbble) lines.push('Dribbble: ' + data.dribbble);
+      if (data.videoLink) lines.push('自己紹介動画: ' + data.videoLink);
+      lines.push('※ 履歴書と動画ファイルはこのメールに添付してください。');
     }
-    var optin = document.getElementById('cOptin');
-    lines.push('今後の案内の受信: ' + (optin && optin.checked ? '希望する' : '希望しない'));
-    if (purpose !== 'newsletter') lines.push('', val('cMsg'));
+    lines.push('今後の案内の受信: ' + (data.optin ? '希望する' : '希望しない'));
+    if (data.message) lines.push('', data.message);
     window.location.href = 'mailto:research@ozu-inc.com?subject=' + encodeURIComponent(subjects[purpose] || 'OZU Research') +
       '&body=' + encodeURIComponent(lines.join('\n'));
+  }
+
+  function submitContact() {
+    var ja = lang === 'ja';
+    if (!validateForm()) return;
+    var data = collectForm();
+    if (!firebaseReady()) { mailtoFallback(data); return; }
+
+    var btn = document.getElementById('cSubmit');
+    btn.disabled = true;
+    setStatus(t('送信しています…', 'Sending…'));
+
+    var paths = window.OZU_FIREBASE_PATHS || { collection: 'enquiries', storageFolder: 'enquiries' };
+    var app = fb();
+    var db = firebase.firestore(app);
+    var storage = firebase.storage(app);
+    var id = String(Date.now()) + '-' + Math.random().toString(36).slice(2, 8);
+
+    function upload(input, name) {
+      if (!input || !input.files || !input.files.length) return Promise.resolve(null);
+      var file = input.files[0];
+      var ref = storage.ref(paths.storageFolder + '/' + id + '/' + name + '-' + file.name);
+      return ref.put(file).then(function () { return ref.getDownloadURL(); });
+    }
+
+    Promise.all([upload(document.getElementById('cCvFile'), 'cv'), upload(document.getElementById('cVideoFile'), 'video')])
+      .then(function (urls) {
+        data.cvUrl = urls[0] || null;
+        data.videoUrl = urls[1] || null;
+        data.createdAt = firebase.firestore.FieldValue.serverTimestamp();
+        return db.collection(paths.collection).doc(id).set(data);
+      })
+      .then(function () {
+        setStatus(t('送信しました。ご連絡ありがとうございます。', 'Sent. Thank you for getting in touch.'));
+        ['cName','cEmail','cOrg','cPhone','cOrcid','cLinkedin','cInstagram','cGithub','cDribbble','cVideo','cMsg'].forEach(function (fid) {
+          var el = document.getElementById(fid); if (el) el.value = '';
+        });
+        ['cCvFile','cVideoFile'].forEach(function (fid) { var el = document.getElementById(fid); if (el) el.value = ''; });
+        var cs = document.getElementById('cConsent'); if (cs) cs.checked = false;
+        btn.disabled = false;
+      })
+      .catch(function (err) {
+        setStatus(t('送信に失敗しました。メールで送信します。', 'Sending failed — opening an email instead.'), 'error');
+        btn.disabled = false;
+        mailtoFallback(data);
+        if (window.console) console.error(err);
+      });
   }
 
   var project = 'ps';

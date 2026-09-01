@@ -1,0 +1,19 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 誰でも「作成」だけ可能。読み取り・更新・削除は管理者（コンソール／Admin SDK）のみ。
+    match /enquiries/{docId} {
+      allow create: if request.resource.data.keys().hasAll(['purpose', 'name', 'email'])
+                    && request.resource.data.name is string
+                    && request.resource.data.name.size() > 0
+                    && request.resource.data.name.size() < 200
+                    && request.resource.data.email is string
+                    && request.resource.data.email.size() < 200
+                    && request.resource.data.get('message', '').size() < 5000;
+      allow read, update, delete: if false;
+    }
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
