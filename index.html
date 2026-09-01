@@ -75,6 +75,8 @@
   .project h2{margin:0;font-size:clamp(26px,3.4vw,38px);line-height:1.15;letter-spacing:-.02em;font-weight:500}
   .pnum{margin:0;font-size:11px;letter-spacing:.24em;color:#a3a39d}
   .plede{margin:0;font-size:17px;line-height:1.8;color:#17181a;max-width:760px;text-wrap:pretty}
+  .prose{display:flex;flex-direction:column;gap:26px}
+  .prose p{margin:0;font-size:15.5px;line-height:1.95;color:#4a4a45;text-wrap:pretty}
   .pbody{margin:0;font-size:15.5px;line-height:1.95;color:#4a4a45;max-width:760px;text-wrap:pretty}
   .pnote{margin:0;font-size:13.5px;line-height:1.8;color:#8d8d87;max-width:760px}
   .pclaim{margin:0;padding:20px 24px;background:#f4f4f0;font-size:15.5px;line-height:1.9;color:#17181a;max-width:760px;text-wrap:pretty}
@@ -225,8 +227,16 @@
     <section data-page="about" hidden>
       <div class="page">
         <p class="kicker"><a href="#">TOP</a> <span class="sep">&lt;</span> ABOUT<span data-lang="ja"> / 概要</span></p>
-        <h1>About</h1>
-        <p class="tbd">TBD</p>
+        <h1 style="margin-bottom:24px">About</h1>
+        <p class="plede" style="margin-bottom:36px;font-size:19px;line-height:1.7">商用に耐える生成 AI をつくる研究開発組織</p>
+        <div class="prose">
+          <p>OZU Research は、生成 AI を「見栄えのする出力」から「実際に納品できる制作」へと引き上げるための研究開発組織です。広告・映像の現場では、AI がきれいな画像や動画を生成できても、法務・ブランド・技術・創造・受容の基準をすべて満たして初めて“出荷”できます。私たちはこの「商用に耐えるか」を、勘や主観ではなく測定可能な構念——Production Survivability——として定義し、それを測り、達成し、現場に実装することを使命としています。</p>
+          <p>研究は 2 つの軸で進みます。ひとつは測る（Measure）——AI 出力が各基準を満たすかを、評価ルーブリック・評価器・専門家レビューで定量化する。もうひとつは達成する（Achieve）——その評価を使って生成・修正・再評価を自動化し、アートディレクション・基準策定・評価/QA・企画・ライブ演出といった既存の人的役割の一部を担うアプリ群を実装する。この 2 軸を、ブランド知識グラフと survivability 評価器からなる共有基盤が支えます。</p>
+          <p>私たちの流儀は、「動くプロダクト（実装）」と「研究（実証）」を対にすることです。実際の商用案件を実証の場とし、そこで得た知見を国際会議やジャーナルで研究成果として世に問う。現場で使えないものは研究にせず、研究で裏づけられないものは現場に出さない——この往復が組織の核にあります。</p>
+          <p>運営は、武蔵野大学と連携する研究体制のもと、日本・インドネシア・タイにまたがる国際的なチームで行います。トップクリエイター（VJ・ディレクター）と研究者、そして各国の大学から迎えるインターンが同じテーブルに着き、制作と研究を行き来しながら、次世代のクリエイティブ AI 人材を育てます。</p>
+          <p>生み出すのは、①商用品質を担保する評価・生成技術とプロダクト群、②それらを一般化する枠組み（X Survivability）と理論、③国際的なクリエイティブ AI の担い手です。</p>
+        </div>
+        <p class="pclaim" style="margin-top:40px">作れるだけでは足りない。商用に“耐える”生成 AI を。<br><span style="color:#5b5b56">Not just generate — make it ship.</span></p>
       </div>
     </section>
 
@@ -261,8 +271,8 @@
     <section data-page="research" hidden>
       <div class="page-wide" style="padding-bottom:40px;max-width:760px">
         <p class="kicker"><a href="#">TOP</a> <span class="sep">&lt;</span> RESEARCH<span data-lang="ja"> / リサーチ</span></p>
-        <h1>Research</h1>
-        <p class="tbd">TBD</p>
+        <h1 style="margin-bottom:24px">Research</h1>
+        <p class="pbody">研究は 2 つの軸で進みます。ひとつは測る（Measure）——AI 出力が各基準を満たすかを、評価ルーブリック・評価器・専門家レビューで定量化する。もうひとつは達成する（Achieve）——その評価を使って生成・修正・再評価を自動化し、アートディレクション・基準策定・評価/QA・企画・ライブ演出といった既存の人的役割の一部を担うアプリ群を実装する。この 2 軸を、ブランド知識グラフと survivability 評価器からなる共有基盤が支えます。</p>
       </div>
       <div class="ptabs" id="ptabs"></div>
       <div class="projects">
