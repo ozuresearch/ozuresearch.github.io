@@ -31,9 +31,23 @@ window.OZU_DATA = {
       summaryJa: "動画をアップロードするだけでAIがカット表の下書きを数分で作成。確認から編集までの作業時間を約60%削減。シーン検出・テロップ抽出・ナレーション書き起こし・PowerPoint出力を一気通貫で自動化。",
       summary: "Upload a video and AI drafts the cut sheet in minutes, cutting the time from review to edit by about 60%. Scene detection, on-screen text extraction, narration transcription and PowerPoint export run end to end.",
       url: "https://www.pacutto.com/",
+      image: "assets/products/pacutto.png",
       links: [
         { label: "pacutto.com", url: "https://www.pacutto.com/" },
         { labelJa: "ニュースリリース", label: "News release", url: "https://ozu-inc.com/news/_8NP660c" }
+      ]
+    },
+    {
+      name: "OkiGO — morning habit app",
+      nameJa: "朝の習慣化アプリ『OkiGO』",
+      dateJa: "2026年4月6日リリース", date: "Released April 6, 2026",
+      summaryJa: "行動経済学の「損失回避」の原理を活用し、意志力に頼らない習慣化を実現するサービス。ユーザーはポイントを預けて目標を宣言し、達成すればポイントを保持、未達成なら失う。アーリーアクセス版では朝のランニング習慣を支援し、目標時刻のアラームと位置情報によるチェックインで達成を計測する。",
+      summary: "A habit app built on loss aversion from behavioural economics, so habits do not depend on willpower. Users stake points and declare a goal: meet it and the points stay, miss it and they are lost. The early-access version supports a morning running habit, measuring completion through an alarm at the target time and a location-based check-in.",
+      url: "https://okigo.jp/",
+      image: "assets/products/okigo.png",
+      links: [
+        { label: "okigo.jp", url: "https://okigo.jp/" },
+        { labelJa: "ニュースリリース", label: "News release", url: "https://ozu-inc.com/news/MYIfUrjo" }
       ]
     }
   ],

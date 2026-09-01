@@ -82,6 +82,14 @@
   .pub .k{font-size:11px;letter-spacing:.22em;color:#a3a39d}
   .pub .t{font-size:21px;line-height:1.45;letter-spacing:-.01em;max-width:820px}
   .pub .m{font-size:13px;color:#5b5b56;line-height:1.7}
+  .prod{padding:32px 0;border-bottom:1px solid #e5e5e0;display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:32px;align-items:start}
+  .prod-body{display:grid;gap:14px}
+  .prod-body .k{font-size:11px;letter-spacing:.22em;color:#a3a39d}
+  .prod-body .t{font-size:21px;line-height:1.45;letter-spacing:-.01em}
+  .prod-body .sum{margin:0;font-size:14.5px;line-height:1.85;color:#4a4a45;text-wrap:pretty}
+  .prod-pic{display:block}
+  .prod-pic img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#eeeeea;border:1px solid #ebebe6}
+  @media (max-width:820px){.prod{grid-template-columns:minmax(0,1fr)}}
   .pub .sum{margin:0;font-size:14.5px;line-height:1.85;color:#4a4a45;max-width:760px;text-wrap:pretty}
   .authors{display:flex;gap:10px 18px;flex-wrap:wrap;align-items:center}
   .authors a{display:flex;align-items:center;gap:8px;font-size:13px}
@@ -421,11 +429,14 @@
       var links = (x.links || []).map(function (l) {
         return '<a class="lnk" href="' + esc(l.url) + '" target="_blank" rel="noopener">' + esc(pick(l, 'labelJa', 'label')) + '</a>';
       }).join('');
-      return '<article class="pub">' +
+      return '<article class="prod">' +
+        '<div class="prod-body">' +
         '<span class="k">' + esc(pick(x, 'dateJa', 'date')) + '</span>' +
         '<a class="t" href="' + esc(x.url) + '" target="_blank" rel="noopener">' + esc(pick(x, 'nameJa', 'name')) + '</a>' +
         (pick(x, 'summaryJa', 'summary') ? '<p class="sum">' + esc(pick(x, 'summaryJa', 'summary')) + '</p>' : '') +
         (links ? '<div class="chips">' + links + '</div>' : '') +
+        '</div>' +
+        (x.image ? '<a class="prod-pic" href="' + esc(x.url) + '" target="_blank" rel="noopener"><img src="' + esc(x.image) + '" alt="' + esc(pick(x, 'nameJa', 'name')) + '"></a>' : '') +
         '</article>';
     }).join('');
     list.hidden = !items.length;
