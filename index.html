@@ -67,6 +67,10 @@
   .locs{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px;max-width:960px}
   .locs>div{border-top:1px solid #17181a;padding-top:24px;display:flex;flex-direction:column;gap:14px}
   .projects{padding:0 0 120px;max-width:980px;display:flex;flex-direction:column;gap:96px}
+  .ptabs{max-width:980px;display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+  .ptabs button{border:1px solid #dedeD8;border-radius:999px;padding:11px 20px;font-size:13px;background:transparent;color:#17181a}
+  .ptabs button[aria-pressed="true"]{background:#17181a;border-color:#17181a;color:#fbfbf9}
+  .project[hidden]{display:none}
   .project{display:flex;flex-direction:column;gap:24px;border-top:1px solid #17181a;padding-top:28px}
   .project h2{margin:0;font-size:clamp(26px,3.4vw,38px);line-height:1.15;letter-spacing:-.02em;font-weight:500}
   .pnum{margin:0;font-size:11px;letter-spacing:.24em;color:#a3a39d}
@@ -79,6 +83,19 @@
   .locs p{margin:0;font-size:15px;line-height:1.8;color:#4a4a45}
   .locpic{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#eeeeea}
   .locpic-sur{object-position:50% 62%}
+  .lede{margin:0 0 40px;font-size:15.5px;line-height:1.85;color:#4a4a45}
+  .form{display:flex;flex-direction:column;gap:24px}
+  .field{display:flex;flex-direction:column;gap:8px}
+  .field span{font-size:12.5px;color:#5b5b56}
+  .field input,.field textarea{border:1px solid #dedeD8;border-radius:999px;padding:13px 18px;font-size:14px;background:#fbfbf9;color:#17181a;font-family:inherit}
+  .field textarea{border-radius:16px;resize:vertical}
+  .field input:focus-visible,.field textarea:focus-visible{outline:1px solid #17181a;outline-offset:2px}
+  .consent{display:flex;align-items:flex-start;gap:10px;font-size:13px;line-height:1.7;color:#5b5b56}
+  .consent input{margin-top:3px}
+  .submitrow{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .submitrow button{border:1px solid #17181a;border-radius:999px;padding:14px 28px;font-size:13.5px;background:#17181a;color:#fbfbf9}
+  .submitrow button:hover{background:#3a3a35}
+  .submitrow span{font-size:12px;color:#8d8d87}
   .pill{border:1px solid #17181a;border-radius:999px;padding:13px 24px;font-size:13px;display:inline-block}
   .pill:hover{background:#17181a;color:#fbfbf9}
   .sublabel{font-size:11px;letter-spacing:.24em;color:#8d8d87;margin:0}
@@ -177,6 +194,7 @@
         <a href="#products"><b>Products</b><em data-lang="ja">プロダクト</em></a>
         <a href="#publications"><b>Publications</b><em data-lang="ja">パブリケーション</em></a>
         <a href="#locations"><b>Locations</b><em data-lang="ja">ロケーション</em></a>
+        <a href="#contact"><b>Contact</b><em data-lang="ja">お問い合わせ</em></a>
       </nav>
     </div>
   </header>
@@ -240,8 +258,9 @@
         <h1>Research</h1>
         <p class="tbd">TBD</p>
       </div>
+      <div class="ptabs" id="ptabs"></div>
       <div class="projects">
-        <article class="project">
+        <article class="project" data-project="ps">
           <p class="pnum">RESEARCH PROJECT 01</p>
           <h2>Production Survivability</h2>
           <p class="plede">AI研究が「本番」で実用的であるために必要なのは、実践的な評価指標である。それを体系的に理論化し、AI応用実践研究の研究基盤を定義する。</p>
@@ -252,7 +271,7 @@
           <p class="pbody">本研究の中心は Production Survivability（生成 AI の出力が「商用に耐える＝納品できる」か）である。生成 AI は見栄えのする画像・動画を出せるが、広告制作の現場では法務・ブランド・技術・創造・受容の各基準を満たして初めて出荷できる。本ラボは、この「商用に耐えるか」を勘や主観ではなく測定可能な構念（construct）として定式化し、それを満たす制作を支援することを目的とする。単なる指標づくりではなく、survivability を妥当性のある測定構念として操作化することが研究上の主要貢献である。</p>
           <p class="pnote">本研究は、武蔵野大学データサイエンス学部 / アジアAI研究所 / 浦木・高橋研究室との共同研究として実施しています。</p>
         </article>
-        <article class="project">
+        <article class="project" data-project="dg" hidden>
           <p class="pnum">RESEARCH PROJECT 02</p>
           <h2>Constraint-Based Direction Generation for Professional-Quality Video Production</h2>
           <p class="plede">プロフェッショナル品質の映像制作のための動的“演出生成”手法</p>
@@ -321,12 +340,40 @@
       </div>
     </section>
 
+    <section data-page="contact" hidden>
+      <div class="page" style="max-width:680px">
+        <p class="kicker"><a href="#">TOP</a> <span class="sep">&lt;</span> CONTACT<span data-lang="ja"> / お問い合わせ</span></p>
+        <h1 style="margin-bottom:24px">Contact</h1>
+        <p class="lede" data-lang="ja">ご質問、ニュースレターの登録、未来創造プロジェクトへの応募は、こちらからお送りください。</p>
+        <p class="lede" data-lang="en" hidden>Send us a question, sign up for the newsletter, or apply to the Future Creation Project.</p>
+
+        <p class="sublabel" id="cPurposeLabel" style="margin:0 0 12px"></p>
+        <div class="filters" id="cPurposes" style="margin-bottom:36px"></div>
+
+        <div class="form">
+          <label class="field"><span id="lName"></span><input id="cName" type="text"></label>
+          <label class="field"><span id="lEmail"></span><input id="cEmail" type="email"></label>
+          <label class="field" id="fOrg"><span id="lOrg"></span><input id="cOrg" type="text"></label>
+          <label class="field" id="fPhone"><span id="lPhone"></span><input id="cPhone" type="tel"></label>
+          <label class="field" id="fMsg"><span id="lMsg"></span><textarea id="cMsg" rows="6"></textarea></label>
+          <label class="consent"><input id="cConsent" type="checkbox"><span id="lConsent"></span></label>
+          <div class="submitrow">
+            <button type="button" id="cSubmit"></button>
+            <span id="lNote"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section data-page="join" hidden>
       <div class="page">
         <p class="kicker"><a href="#">TOP</a> <span class="sep">&lt;</span> JOIN THE TEAM</p>
         <h1>Join the team</h1>
         <p class="tbd" style="margin-bottom:28px">TBD</p>
-        <a class="pill" href="mailto:contact@ozu-inc.com">contact@ozu-inc.com</a>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a class="pill" href="#contact" style="background:#17181a;color:#fbfbf9" id="joinCta"></a>
+          <a class="pill" href="mailto:research@ozu-inc.com">research@ozu-inc.com</a>
+        </div>
       </div>
     </section>
   </main>
@@ -355,6 +402,7 @@
           <a href="#products">Products</a>
           <a href="#publications">Publications</a>
           <a href="#locations">Locations</a>
+          <a href="#contact">Contact</a>
         </div>
       </div>
     </div>
@@ -369,7 +417,8 @@
 <script>
 (function () {
   var D = window.OZU_DATA || { members: [], publications: [] };
-  var known = ['home','about','team','research','products','publications','locations','join'];
+  var known = ['home','about','team','research','products','publications','locations','join','contact'];
+  var purpose = 'question';
   var drawer = document.getElementById('drawer');
   var menuBtn = document.getElementById('menuBtn');
   var lang = 'ja';
@@ -513,6 +562,66 @@
     return true;
   }
 
+  function renderContact() {
+    var ja = lang === 'ja';
+    document.getElementById('cPurposeLabel').textContent = t('お問い合わせの種別', 'PURPOSE');
+    var defs = [
+      { key: 'question', label: t('質問したい', 'Ask a question') },
+      { key: 'newsletter', label: t('ニュースレターに登録したい', 'Subscribe to the newsletter') },
+      { key: 'apply', label: t('応募したい', 'Apply') }
+    ];
+    document.getElementById('cPurposes').innerHTML = defs.map(function (x) {
+      return '<button type="button" data-purpose="' + x.key + '" aria-pressed="' + (purpose === x.key) + '">' + esc(x.label) + '</button>';
+    }).join('');
+    document.getElementById('lName').textContent = t('お名前 *', 'Name *');
+    document.getElementById('lEmail').textContent = t('メールアドレス *', 'Email *');
+    document.getElementById('lOrg').textContent = t('ご所属・学校名', 'Organisation or school');
+    document.getElementById('lPhone').textContent = t('電話番号 *', 'Phone *');
+    document.getElementById('lMsg').textContent = purpose === 'apply'
+      ? t('応募の動機・自己紹介 *', 'Why you are applying, and about you *')
+      : t('ご質問・ご相談内容 *', 'Your question *');
+    document.getElementById('lConsent').textContent = t('個人情報を本件の連絡のために利用することに同意します。', 'I agree that my details may be used to reply to this enquiry.');
+    document.getElementById('cSubmit').textContent = t('送信する', 'Send');
+    document.getElementById('lNote').textContent = t('送信するとメールが作成されます。', 'Sending opens a pre-filled email.');
+    document.getElementById('fOrg').hidden = purpose === 'newsletter';
+    document.getElementById('fPhone').hidden = purpose !== 'apply';
+    document.getElementById('fMsg').hidden = purpose === 'newsletter';
+    var cta = document.getElementById('joinCta');
+    if (cta) cta.textContent = t('お問い合わせフォーム', 'Contact form');
+  }
+
+  function submitContact() {
+    var ja = lang === 'ja';
+    function val(id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; }
+    var consent = document.getElementById('cConsent');
+    var name = val('cName'), email = val('cEmail');
+    if (!name || !email) { window.alert(ja ? 'お名前とメールアドレスをご入力ください。' : 'Please enter your name and email.'); return; }
+    if (purpose !== 'newsletter' && !val('cMsg')) { window.alert(ja ? '内容をご入力ください。' : 'Please enter your message.'); return; }
+    if (purpose === 'apply' && !val('cPhone')) { window.alert(ja ? '電話番号をご入力ください。' : 'Please enter your phone number.'); return; }
+    if (!consent || !consent.checked) { window.alert(ja ? '個人情報の取り扱いに同意してください。' : 'Please agree to the handling of your details.'); return; }
+    var subjects = { question: 'OZU Research — 質問', newsletter: 'OZU Research — ニュースレター登録', apply: 'OZU Research — 応募' };
+    var lines = ['種別: ' + (subjects[purpose] || purpose), 'お名前: ' + name, 'メール: ' + email];
+    if (purpose !== 'newsletter' && val('cOrg')) lines.push('所属: ' + val('cOrg'));
+    if (purpose === 'apply') lines.push('電話: ' + val('cPhone'));
+    if (purpose !== 'newsletter') lines.push('', val('cMsg'));
+    window.location.href = 'mailto:research@ozu-inc.com?subject=' + encodeURIComponent(subjects[purpose] || 'OZU Research') +
+      '&body=' + encodeURIComponent(lines.join('\n'));
+  }
+
+  var project = 'ps';
+  function renderProjects() {
+    var defs = [
+      { key: 'ps', label: '01 Production Survivability' },
+      { key: 'dg', label: '02 Direction Generation' }
+    ];
+    document.getElementById('ptabs').innerHTML = defs.map(function (x) {
+      return '<button type="button" data-project="' + x.key + '" aria-pressed="' + (project === x.key) + '">' + esc(x.label) + '</button>';
+    }).join('');
+    document.querySelectorAll('article[data-project]').forEach(function (a) {
+      a.hidden = a.getAttribute('data-project') !== project;
+    });
+  }
+
   function route() {
     var h = decodeURIComponent((location.hash || '').replace(/^#\/?/, '').replace(/\/$/, ''));
     var page = 'home';
@@ -524,6 +633,8 @@
     document.querySelector('section[data-pubs]').hidden = page !== 'publications';
     if (page === 'team') renderTeam();
     if (page === 'products') renderProducts();
+    if (page === 'research') renderProjects();
+    if (page === 'contact' || page === 'join') renderContact();
     if (page === 'publications') renderPubs();
     drawer.hidden = true;
     menuBtn.setAttribute('aria-expanded', 'false');
@@ -555,6 +666,19 @@
     if (!b) return;
     filter = b.getAttribute('data-filter');
     renderPubs();
+  });
+  document.getElementById('cPurposes').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-purpose]');
+    if (!b) return;
+    purpose = b.getAttribute('data-purpose');
+    renderContact();
+  });
+  document.getElementById('cSubmit').addEventListener('click', submitContact);
+  document.getElementById('ptabs').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-project]');
+    if (!b) return;
+    project = b.getAttribute('data-project');
+    renderProjects();
   });
   window.addEventListener('hashchange', route);
 
