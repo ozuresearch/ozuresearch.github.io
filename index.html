@@ -78,6 +78,7 @@
   .pub .k{font-size:11px;letter-spacing:.22em;color:#a3a39d}
   .pub .t{font-size:21px;line-height:1.45;letter-spacing:-.01em;max-width:820px}
   .pub .m{font-size:13px;color:#5b5b56;line-height:1.7}
+  .pub .sum{margin:0;font-size:14.5px;line-height:1.85;color:#4a4a45;max-width:760px;text-wrap:pretty}
   .authors{display:flex;gap:10px 18px;flex-wrap:wrap;align-items:center}
   .authors a{display:flex;align-items:center;gap:8px;font-size:13px}
   .chips{display:flex;gap:8px;flex-wrap:wrap}
@@ -166,9 +167,11 @@
       </div>
       <div class="index">
         <a href="#about"><u>01</u><b>About</b><em data-lang="ja">概要</em></a>
-        <a href="#research"><u>02</u><b>Research</b><em data-lang="ja">リサーチ</em></a>
-        <a href="#products"><u>03</u><b>Products</b><em data-lang="ja">プロダクト</em></a>
-        <a href="#locations"><u>04</u><b>Locations</b><em data-lang="ja">ロケーション</em></a>
+        <a href="#team"><u>02</u><b>Team</b><em data-lang="ja">チーム</em></a>
+        <a href="#research"><u>03</u><b>Research</b><em data-lang="ja">リサーチ</em></a>
+        <a href="#products"><u>04</u><b>Products</b><em data-lang="ja">プロダクト</em></a>
+        <a href="#publications"><u>05</u><b>Publications</b><em data-lang="ja">パブリケーション</em></a>
+        <a href="#locations"><u>06</u><b>Locations</b><em data-lang="ja">ロケーション</em></a>
       </div>
     </section>
 
@@ -361,11 +364,15 @@
   }
 
   function pubRow(x) {
-    var kicker = pubTypeLabel(x.type) + (x.year ? ' · ' + x.year : '');
+    var status = pick(x, 'statusJa', 'status');
+    var kicker = pubTypeLabel(x.type) + (x.year ? ' · ' + x.year : '') + (status ? ' · ' + status : '');
     var href = x.url || (x.links && x.links[0] && x.links[0].url) || '#publications';
-    var authors = (x.authors || []).map(function (h) {
-      var m = member(h) || { handle: h, name: h };
-      return '<a href="#@' + esc(m.handle) + '">' + avatar(m, 'av-26') + '<span>' + esc(memberName(m) || h) + '</span></a>';
+    var authors = (x.authors || []).map(function (a) {
+      if (typeof a !== 'string') {
+        return '<span style="display:flex;align-items:center;gap:8px;font-size:13px">' + avatar(a, 'av-26') + '<span>' + esc(memberName(a)) + '</span></span>';
+      }
+      var m = member(a) || { handle: a, name: a };
+      return '<a href="#@' + esc(m.handle) + '">' + avatar(m, 'av-26') + '<span>' + esc(memberName(m) || a) + '</span></a>';
     }).join('');
     var tags = (x.tags || []).map(function (tg) { return '<span class="tag">' + esc(tg) + '</span>'; }).join('');
     var links = (x.links || []).map(function (l) {
@@ -375,6 +382,7 @@
       '<span class="k">' + esc(kicker) + '</span>' +
       '<a class="t" href="' + esc(href) + '"' + (href.charAt(0) === '#' ? '' : ' target="_blank" rel="noopener"') + '>' + esc(pick(x, 'titleJa', 'title')) + '</a>' +
       '<span class="m">' + esc(pick(x, 'venueJa', 'venue')) + '</span>' +
+      (pick(x, 'summaryJa', 'summary') ? '<p class="sum">' + esc(pick(x, 'summaryJa', 'summary')) + '</p>' : '') +
       (authors ? '<div class="authors">' + authors + '</div>' : '') +
       ((tags || links) ? '<div class="chips">' + tags + links + '</div>' : '') +
       '</article>';
