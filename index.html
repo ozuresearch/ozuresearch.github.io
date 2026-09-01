@@ -96,6 +96,7 @@
   .submitrow button{border:1px solid #17181a;border-radius:999px;padding:14px 28px;font-size:13.5px;background:#17181a;color:#fbfbf9}
   .submitrow button:hover{background:#3a3a35}
   .submitrow span{font-size:12px;color:#8d8d87}
+  .fineprint{margin:0;font-size:11.5px;line-height:1.85;color:#9a9a94;max-width:600px;text-wrap:pretty}
   .pill{border:1px solid #17181a;border-radius:999px;padding:13px 24px;font-size:13px;display:inline-block}
   .pill:hover{background:#17181a;color:#fbfbf9}
   .sublabel{font-size:11px;letter-spacing:.24em;color:#8d8d87;margin:0}
@@ -364,10 +365,12 @@
           <label class="field" id="fVideo"><span id="lVideo"></span><input id="cVideo" type="url" placeholder="https://youtu.be/"></label>
           <label class="field" id="fMsg"><span id="lMsg"></span><textarea id="cMsg" rows="6"></textarea></label>
           <label class="consent"><input id="cConsent" type="checkbox"><span id="lConsent"></span></label>
+          <label class="consent"><input id="cOptin" type="checkbox"><span id="lOptin"></span></label>
           <div class="submitrow">
             <button type="button" id="cSubmit"></button>
             <span id="lNote"></span>
           </div>
+          <p class="fineprint" id="lFine"></p>
         </div>
       </div>
     </section>
@@ -595,6 +598,8 @@
       ? t('応募の動機・自己紹介 *', 'Why you are applying, and about you *')
       : t('ご質問・ご相談内容 *', 'Your question *');
     document.getElementById('lConsent').textContent = t('個人情報を本件の連絡のために利用することに同意します。', 'I agree that my details may be used to reply to this enquiry.');
+    document.getElementById('lOptin').textContent = t('今後のアップデートおよびご案内を受信する', 'Receive future updates and announcements');
+    document.getElementById('lFine').textContent = "回答には時間がかかることがあります。また、ご希望に添えないこともあります。お問い合わせいただいた内容は、お問い合わせ目的およびその回答のみのために使用します。「今後のアップデートおよびご案内を受信する」にチェックをいただきますと、今後、OZU ResearchおよびOZU Inc.に関連するご連絡をさせていただく場合があります。";
     document.getElementById('cSubmit').textContent = t('送信する', 'Send');
     document.getElementById('lNote').textContent = t('送信するとメールが作成されます。', 'Sending opens a pre-filled email.');
     document.getElementById('fOrg').hidden = purpose === 'newsletter';
@@ -633,6 +638,8 @@
       lines.push('履歴書: ' + val('cCv'));
       lines.push('自己紹介動画: ' + val('cVideo'));
     }
+    var optin = document.getElementById('cOptin');
+    lines.push('今後の案内の受信: ' + (optin && optin.checked ? '希望する' : '希望しない'));
     if (purpose !== 'newsletter') lines.push('', val('cMsg'));
     window.location.href = 'mailto:research@ozu-inc.com?subject=' + encodeURIComponent(subjects[purpose] || 'OZU Research') +
       '&body=' + encodeURIComponent(lines.join('\n'));
