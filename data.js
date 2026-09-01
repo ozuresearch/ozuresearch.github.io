@@ -67,7 +67,7 @@ window.OZU_DATA = {
     {
       handle: "shinjo",
       name: "新城 良明", nameEn: "Yoshiaki Shinjo",
-      roleJa: "Head of Research, OZU Research", role: "Head of Research, OZU Research",
+      roleJa: "共同研究所長", role: "Head of Research, OZU Research",
       photo: "assets/people/shinjo.png",
       bio: "Head of Research at OZU Research and CEO of OZU Inc. (Shibuya, Tokyo). He builds video and VFX production pipelines for the AI era, developing and deploying creative technology across AI and creative work. In 2026 he opened the OZU AI Creative Lab, an AI×VFX research base at PENS (Politeknik Elektronika Negeri Surabaya) in Indonesia, and runs an international internship programme with Chulalongkorn University in Thailand, building a network of AI talent rooted in Southeast Asia.",
       bioJa: "OZU Research研究所長。株式会社OZU（東京・渋谷）代表取締役。AI時代の映像・VFX制作体制の構築を目指し、AI×クリエイティブ領域で映像制作・VFX・クリエイティブテクノロジーの開発・実装を手がける。2026年、インドネシアの名門ポリテクニックPENS（スラバヤ電子工学ポリテクニック）にAI×VFX研究拠点「OZU AIクリエイティブ・ラボ」を開設。タイ・チュラロンコン大学との国際インターンシップも並行して推進し、東南アジアを起点としたAI人材ネットワークの構築を進める。"
@@ -75,7 +75,7 @@ window.OZU_DATA = {
     {
       handle: "takahashi",
       name: "高橋 雄介 博士", nameEn: "Yusuke Takahashi, PhD",
-      roleJa: "Head of Research, OZU Research", role: "Head of Research, OZU Research",
+      roleJa: "共同研究所長", role: "Head of Research, OZU Research",
       photo: "assets/people/takahashi.jpg",
       bio: "Co-Head of Research at OZU Research. Associate Professor, Faculty of Data Science, Musashino University. PhD in Media and Governance from Keio University. A computer scientist and serial entrepreneur, he co-founded AIx{} and EKIDEN.AI, a conversational AI running coach. His research concerns adaptive semantic infrastructure and knowledge bases built on orthogonalized meaning spaces. He has founded software startups in Silicon Valley and Tokyo, working across product design, growth and customer development. 500 Startups alumnus.",
       bioJa: "OZU Research共同研究所長。武蔵野大学データサイエンス学部 准教授。慶應義塾大学にてメディア・ガバナンス博士号取得。計算機科学者であり連続起業家。AIx{} を共同創業。AI対話型ランニングコーチ EKIDEN.AI を共同創業。直交化された意味空間に基づく適応的セマンティック基盤と知識ベースを研究する。シリコンバレーと東京でソフトウェアスタートアップを創業し、プロダクトデザイン・グロース・顧客開発に携わってきた。500 Startups 出身。"
