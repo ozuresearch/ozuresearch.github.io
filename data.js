@@ -23,6 +23,20 @@
    }
 */
 window.OZU_DATA = {
+  products: [
+    {
+      name: "pacutto — AI cut-sheet generator",
+      nameJa: "カット表作成支援AIツール「ぱかっと」",
+      dateJa: "2026年6月25日リリース", date: "Released June 25, 2026",
+      summaryJa: "動画をアップロードするだけでAIがカット表の下書きを数分で作成。確認から編集までの作業時間を約60%削減。シーン検出・テロップ抽出・ナレーション書き起こし・PowerPoint出力を一気通貫で自動化。",
+      summary: "Upload a video and AI drafts the cut sheet in minutes, cutting the time from review to edit by about 60%. Scene detection, on-screen text extraction, narration transcription and PowerPoint export run end to end.",
+      url: "https://www.pacutto.com/",
+      links: [
+        { label: "pacutto.com", url: "https://www.pacutto.com/" },
+        { labelJa: "ニュースリリース", label: "News release", url: "https://ozu-inc.com/news/_8NP660c" }
+      ]
+    }
+  ],
   members: [
     {
       handle: "shinjo",

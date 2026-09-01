@@ -242,10 +242,11 @@
     </section>
 
     <section data-page="products" hidden>
-      <div class="page">
+      <div class="page-wide">
         <p class="kicker"><a href="#">TOP</a> <span class="sep">&lt;</span> PRODUCTS<span data-lang="ja"> / プロダクト</span></p>
-        <h1>Products</h1>
-        <p class="tbd">TBD</p>
+        <h1 style="margin-bottom:40px">Products</h1>
+        <div class="publist" id="prodList"></div>
+        <p class="tbd" id="prodEmpty" hidden></p>
       </div>
     </section>
 
@@ -412,6 +413,26 @@
     empty.textContent = t('準備中です。', 'Coming soon.');
   }
 
+  function renderProducts() {
+    var items = D.products || [];
+    var list = document.getElementById('prodList');
+    var empty = document.getElementById('prodEmpty');
+    list.innerHTML = items.map(function (x) {
+      var links = (x.links || []).map(function (l) {
+        return '<a class="lnk" href="' + esc(l.url) + '" target="_blank" rel="noopener">' + esc(pick(l, 'labelJa', 'label')) + '</a>';
+      }).join('');
+      return '<article class="pub">' +
+        '<span class="k">' + esc(pick(x, 'dateJa', 'date')) + '</span>' +
+        '<a class="t" href="' + esc(x.url) + '" target="_blank" rel="noopener">' + esc(pick(x, 'nameJa', 'name')) + '</a>' +
+        (pick(x, 'summaryJa', 'summary') ? '<p class="sum">' + esc(pick(x, 'summaryJa', 'summary')) + '</p>' : '') +
+        (links ? '<div class="chips">' + links + '</div>' : '') +
+        '</article>';
+    }).join('');
+    list.hidden = !items.length;
+    empty.hidden = !!items.length;
+    empty.textContent = t('準備中です。', 'Coming soon.');
+  }
+
   function renderPerson(handle) {
     var m = member(handle);
     if (!m) return false;
@@ -444,6 +465,7 @@
     });
     document.querySelector('section[data-pubs]').hidden = !(page === 'research' || page === 'publications');
     if (page === 'team') renderTeam();
+    if (page === 'products') renderProducts();
     if (page === 'research' || page === 'publications') renderPubs();
     drawer.hidden = true;
     menuBtn.setAttribute('aria-expanded', 'false');
