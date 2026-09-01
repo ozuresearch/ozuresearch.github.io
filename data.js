@@ -74,11 +74,11 @@ window.OZU_DATA = {
       venue: "ICAST 2026, Surabaya, Indonesia, October 9–10, 2026",
       venueJa: "ICAST 2026, インドネシア・スラバヤ, 2026年10月9〜10日",
       authors: ["wajdi", "obed", "takahashi"],
-      url: "https://aix.sc/#publications",
+      url: "https://aix.sc/publications/icast2026-closing-the-loop",
       summaryJa: "生成AIによる広告画像の修正ループにおける「いつ止めるか」を扱う。6次元の実用到達度ルーブリックと修正可能性を付与した失敗モード分類を土台に、閉ループ修正エンジンと判定情報型ストッピング（VIS）を提案。ブランドXの7成果物・21回の実行で、収束率を維持しながら（81%対81%）生成呼び出しを28%削減した（59回対82回）。",
       summary: "Addresses when to stop in closed-loop revision of advertising images with generative AI. Building on a six-dimensional production-survivability rubric and a failure-mode taxonomy annotated with repairability, the paper proposes a closed-loop revision engine with Verdict-Informed Stopping (VIS). Across 7 deliverables and 21 runs for Brand X, VIS cut generation calls by 28% (59 vs. 82) while holding final convergence at 81%.",
       tags: ["Production_Survivability", "generative_AI", "closed-loop_revision", "verdict-informed_stopping", "advertising_technology"],
-      links: []
+      links: [{ label: "AIx{} で読む", url: "https://aix.sc/publications/icast2026-closing-the-loop" }]
     },
     {
       type: "paper", year: 2026,
