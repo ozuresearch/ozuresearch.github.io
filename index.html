@@ -56,7 +56,7 @@
   .page-wide{padding:96px 0 120px}
   .tbd{margin:0;font-size:16px;line-height:1.85;color:#8d8d87}
   .hero{padding:120px 0 96px;max-width:820px}
-  .hero h1{margin:0;font-size:clamp(44px,7vw,88px);line-height:1.02;font-weight:400}
+  .hero h1{margin:0;font-size:clamp(44px,7vw,88px);line-height:1.14;font-weight:400}
   .hero p{margin:36px 0 0;font-size:17px;line-height:1.85;color:#4a4a45;max-width:600px;text-wrap:pretty}
   .index{margin-bottom:120px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));background:#fbfbf9;border-top:1px solid #e5e5e0}
   .index a{background:#fbfbf9;padding:34px 28px 40px;display:flex;flex-direction:column;gap:8px;border-bottom:1px solid #e5e5e0;border-right:1px solid #e5e5e0}
@@ -599,9 +599,11 @@
       : t('ご質問・ご相談内容 *', 'Your question *');
     document.getElementById('lConsent').textContent = t('個人情報を本件の連絡のために利用することに同意します。', 'I agree that my details may be used to reply to this enquiry.');
     document.getElementById('lOptin').textContent = t('今後のアップデートおよびご案内を受信する', 'Receive future updates and announcements');
-    document.getElementById('lFine').textContent = "回答には時間がかかることがあります。また、ご希望に添えないこともあります。お問い合わせいただいた内容は、お問い合わせ目的およびその回答のみのために使用します。「今後のアップデートおよびご案内を受信する」にチェックをいただきますと、今後、OZU ResearchおよびOZU Inc.に関連するご連絡をさせていただく場合があります。";
+    document.getElementById('lFine').textContent = t("回答には時間がかかることがあります。また、ご希望に添えないこともあります。お問い合わせいただいた内容は、お問い合わせ目的およびその回答のみのために使用します。「今後のアップデートおよびご案内を受信する」にチェックをいただきますと、今後、OZU ResearchおよびOZU Inc.に関連するご連絡をさせていただく場合があります。", "A reply may take some time, and we may be unable to accommodate every request. Your submission is used solely for the stated purpose and our reply. If you check “receive future updates and announcements,” we may contact you about the Uraki–Takahashi Lab and Musashino University’s Faculty of Data Science.");
     document.getElementById('cSubmit').textContent = t('送信する', 'Send');
-    document.getElementById('lNote').textContent = t('送信するとメールが作成されます。', 'Sending opens a pre-filled email.');
+    document.getElementById('lNote').textContent = purpose === 'apply'
+      ? t('送信するとメールが作成されます。履歴書や動画ファイルはそのメールに添付いただけます。', 'Sending opens a pre-filled email; you can attach your résumé and video to it.')
+      : t('送信するとメールが作成されます。', 'Sending opens a pre-filled email.');
     document.getElementById('fOrg').hidden = purpose === 'newsletter';
     ['fPhone','fOrcid','fLinkedin','fInstagram','fGithub','fDribbble','fCv','fVideo'].forEach(function (id) {
       document.getElementById(id).hidden = purpose !== 'apply';
