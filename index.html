@@ -384,7 +384,6 @@
           <label class="field" id="fCv"><span id="lCv"></span><input id="cCvFile" type="file" accept="application/pdf" class="fileinput"></label>
           <label class="field" id="fVideo"><span id="lVideo"></span><input id="cVideoFile" type="file" accept="video/*" class="fileinput"><span class="orrow"><em id="lOr"></em><input id="cVideo" type="url" placeholder="https://youtu.be/"></span></label>
           <label class="field" id="fMsg"><span id="lMsg"></span><textarea id="cMsg" rows="6"></textarea></label>
-          <label class="consent"><input id="cConsent" type="checkbox"><span id="lConsent"></span></label>
           <label class="consent"><input id="cOptin" type="checkbox" checked><span id="lOptin"></span></label>
           <div class="submitrow">
             <button type="button" id="cSubmit"></button>
@@ -623,9 +622,8 @@
     document.getElementById('lMsg').textContent = purpose === 'apply'
       ? t('応募の動機・自己紹介 *', 'Why you are applying, and about you *')
       : t('ご質問・ご相談内容 *', 'Your question *');
-    document.getElementById('lConsent').textContent = t('個人情報を本件の連絡のために利用することに同意します。', 'I agree that my details may be used to reply to this enquiry.');
     document.getElementById('lOptin').textContent = t('今後のアップデートおよびご案内を受信する', 'Receive future updates and announcements');
-    document.getElementById('lFine').textContent = t("回答には時間がかかることがあります。また、ご希望に添えないこともあります。お問い合わせいただいた内容は、お問い合わせ目的およびその回答のみのために使用します。「今後のアップデートおよびご案内を受信する」にチェックをいただきますと、今後、OZU ResearchおよびOZU Inc.に関連するご連絡をさせていただく場合があります。", "A reply may take some time, and we may be unable to accommodate every request. Your submission is used solely for the stated purpose and our reply. If you check “receive future updates and announcements,” we may contact you about the Uraki–Takahashi Lab and Musashino University’s Faculty of Data Science.");
+    document.getElementById('lFine').textContent = t("回答には時間がかかることがあります。また、ご希望に添えないこともあります。お問い合わせいただいた内容は、お問い合わせ目的およびその回答のみのために使用します。「送信する」を押すことにより、ご入力いただいた個人情報を本件の連絡のために利用することに同意したことになります。「今後のアップデートおよびご案内を受信する」にチェックをいただきますと、今後、OZU ResearchおよびOZU Inc.に関連するご連絡をさせていただく場合があります。", "A reply may take some time, and we may be unable to accommodate every request. Your submission is used solely for the stated purpose and our reply. By pressing “Send”, you agree that the details you enter may be used to contact you about this enquiry. If you check “receive future updates and announcements,” we may contact you about OZU Research and OZU Inc.");
     document.getElementById('cSubmit').textContent = t('送信する', 'Send');
     document.getElementById('lNote').textContent = purpose === 'apply'
       ? t('履歴書と自己紹介動画を添えて送信できます。', 'Attach your résumé and video, then send.')
@@ -688,7 +686,6 @@
   function validateForm() {
     var ja = lang === 'ja';
     function val(id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; }
-    var consent = document.getElementById('cConsent');
     if (!val('cName') || !val('cEmail')) { window.alert(ja ? 'お名前とメールアドレスをご入力ください。' : 'Please enter your name and email.'); return false; }
     if (purpose !== 'newsletter' && !val('cMsg')) { window.alert(ja ? '内容をご入力ください。' : 'Please enter your message.'); return false; }
     if (purpose === 'question' && !val('cPhone')) { window.alert(ja ? '携帯電話番号をご入力ください。' : 'Please enter your mobile phone number.'); return false; }
@@ -702,7 +699,6 @@
       var vf = document.getElementById('cVideoFile');
       if ((!vf || !vf.files || !vf.files.length) && !val('cVideo')) { window.alert(ja ? '自己紹介動画のファイルまたはYouTubeリンクをご指定ください。' : 'Please attach a video file or give a YouTube link.'); return false; }
     }
-    if (!consent || !consent.checked) { window.alert(ja ? '個人情報の取り扱いに同意してください。' : 'Please agree to the handling of your details.'); return false; }
     return true;
   }
 
@@ -759,7 +755,6 @@
           var el = document.getElementById(fid); if (el) el.value = '';
         });
         ['cCvFile','cVideoFile'].forEach(function (fid) { var el = document.getElementById(fid); if (el) el.value = ''; });
-        var cs = document.getElementById('cConsent'); if (cs) cs.checked = false;
         btn.disabled = false;
       })
       .catch(function (err) {
