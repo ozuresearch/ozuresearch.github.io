@@ -60,6 +60,7 @@ window.OZU_DATA = {
       handle: "wajdi",
       name: "アクマド ザヒル ワジ", nameEn: "Achmad Zahir Wajdi",
       roleJa: "研究員", role: "Researcher",
+      photo: "assets/people/wajdi.jpg",
       bio: "Researcher at OZU Research. Fourth-year student, Musashino International Data Science (MIDS), Musashino University. Graduate of PENS, Surabaya.",
       bioJa: "OZU Research研究員。武蔵野大学国際データサイエンス学部（MIDS）学部4年。スラバヤ工科大学（PENS）卒業。"
     }
