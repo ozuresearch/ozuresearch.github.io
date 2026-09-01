@@ -64,6 +64,8 @@
   .locs>div{border-top:1px solid #17181a;padding-top:24px;display:flex;flex-direction:column;gap:14px}
   .locs h2{margin:0;font-size:24px;font-weight:500;letter-spacing:-.01em}
   .locs p{margin:0;font-size:15px;line-height:1.8;color:#4a4a45}
+  .locpic{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#eeeeea}
+  .locpic-sur{object-position:50% 62%}
   .pill{border:1px solid #17181a;border-radius:999px;padding:13px 24px;font-size:13px;display:inline-block}
   .pill:hover{background:#17181a;color:#fbfbf9}
   .sublabel{font-size:11px;letter-spacing:.24em;color:#8d8d87;margin:0}
@@ -246,11 +248,13 @@
         <h1 style="margin-bottom:56px">Locations</h1>
         <div class="locs">
           <div>
+            <img class="locpic" src="assets/locations/tokyo.png" alt="Tokyo Lab — Croce Jingumae">
             <h2>Tokyo Lab</h2>
             <p data-lang="ja">〒150-0001 東京都渋谷区神宮前3-35-2<br>クローチェ神宮前ビル5F</p>
             <p data-lang="en" hidden>Croce Jingumae Bldg. 5F<br>3-35-2 Jingumae, Shibuya-ku<br>Tokyo 150-0001, Japan</p>
           </div>
           <div>
+            <img class="locpic locpic-sur" src="assets/locations/surabaya.jpg" alt="Surabaya Lab — PENS">
             <h2>Surabaya Lab</h2>
             <p>SAW-10.01 Lab<br>Politeknik Elektronika Negeri Surabaya<br>Jl. Raya ITS, Keputih, Sukolilo,<br>Surabaya, East Java 60111, Indonesia</p>
           </div>
