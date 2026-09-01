@@ -382,7 +382,7 @@
           <label class="field" id="fVideo"><span id="lVideo"></span><input id="cVideoFile" type="file" accept="video/*" class="fileinput"><span class="orrow"><em id="lOr"></em><input id="cVideo" type="url" placeholder="https://youtu.be/"></span></label>
           <label class="field" id="fMsg"><span id="lMsg"></span><textarea id="cMsg" rows="6"></textarea></label>
           <label class="consent"><input id="cConsent" type="checkbox"><span id="lConsent"></span></label>
-          <label class="consent"><input id="cOptin" type="checkbox"><span id="lOptin"></span></label>
+          <label class="consent"><input id="cOptin" type="checkbox" checked><span id="lOptin"></span></label>
           <div class="submitrow">
             <button type="button" id="cSubmit"></button>
             <span id="lNote"></span>
@@ -612,7 +612,7 @@
     document.getElementById('lOrcid').textContent = 'ORCID URL *';
     document.getElementById('lLinkedin').textContent = 'LinkedIn URL *';
     document.getElementById('lInstagram').textContent = 'Instagram URL *';
-    document.getElementById('lGithub').textContent = t('GitHub URL（任意）', 'GitHub URL (optional)');
+    document.getElementById('lGithub').textContent = 'GitHub URL *';
     document.getElementById('lDribbble').textContent = t('Dribbble URL（任意）', 'Dribbble URL (optional)');
     document.getElementById('lCv').textContent = t('履歴書（PDF） *', 'Résumé (PDF) *');
     document.getElementById('lVideo').textContent = t('自己紹介動画（1分以内：自己紹介＋熱意＋希望研究テーマ） *', 'Self-introduction video (under 1 min) *');
@@ -627,10 +627,11 @@
     document.getElementById('lNote').textContent = purpose === 'apply'
       ? t('履歴書と自己紹介動画を添えて送信できます。', 'Attach your résumé and video, then send.')
       : t('送信するとメールが作成されます。', 'Sending opens a pre-filled email.');
-    document.getElementById('fOrg').hidden = purpose === 'newsletter';
-    ['fPhone','fOrcid','fLinkedin','fInstagram','fGithub','fDribbble','fCv','fVideo'].forEach(function (id) {
+    ['fOrcid','fLinkedin','fInstagram','fGithub','fDribbble','fCv','fVideo'].forEach(function (id) {
       document.getElementById(id).hidden = purpose !== 'apply';
     });
+    document.getElementById('fPhone').hidden = purpose === 'newsletter';
+    document.getElementById('fOrg').hidden = false;
     document.getElementById('fMsg').hidden = purpose === 'newsletter';
     var cta = document.getElementById('joinCta');
     if (cta) cta.textContent = t('お問い合わせフォーム', 'Contact form');
@@ -665,12 +666,12 @@
       optin: !!(optin && optin.checked),
       page: location.href
     };
+    data.organisation = val('cOrg');
     if (purpose !== 'newsletter') {
-      data.organisation = val('cOrg');
       data.message = val('cMsg');
+      data.phone = val('cPhone');
     }
     if (purpose === 'apply') {
-      data.phone = val('cPhone');
       data.orcid = val('cOrcid');
       data.linkedin = val('cLinkedin');
       data.instagram = val('cInstagram');
@@ -687,8 +688,9 @@
     var consent = document.getElementById('cConsent');
     if (!val('cName') || !val('cEmail')) { window.alert(ja ? 'お名前とメールアドレスをご入力ください。' : 'Please enter your name and email.'); return false; }
     if (purpose !== 'newsletter' && !val('cMsg')) { window.alert(ja ? '内容をご入力ください。' : 'Please enter your message.'); return false; }
+    if (purpose === 'question' && !val('cPhone')) { window.alert(ja ? '携帯電話番号をご入力ください。' : 'Please enter your mobile phone number.'); return false; }
     if (purpose === 'apply') {
-      var need = [['cPhone', ja ? '携帯電話番号' : 'Mobile phone'], ['cOrcid', 'ORCID URL'], ['cLinkedin', 'LinkedIn URL'], ['cInstagram', 'Instagram URL']];
+      var need = [['cPhone', ja ? '携帯電話番号' : 'Mobile phone'], ['cOrcid', 'ORCID URL'], ['cLinkedin', 'LinkedIn URL'], ['cInstagram', 'Instagram URL'], ['cGithub', 'GitHub URL']];
       for (var i = 0; i < need.length; i++) {
         if (!val(need[i][0])) { window.alert((ja ? '必須項目をご入力ください：' : 'Please fill in: ') + need[i][1]); return false; }
       }
@@ -705,9 +707,9 @@
     var subjects = { question: 'OZU Research — 質問', newsletter: 'OZU Research — ニュースレター登録', apply: 'OZU Research — 応募' };
     var lines = ['種別: ' + (subjects[purpose] || purpose), 'お名前: ' + data.name, 'メール: ' + data.email];
     if (data.organisation) lines.push('所属: ' + data.organisation);
+    if (data.phone) lines.push('携帯電話: ' + data.phone);
     if (purpose === 'apply') {
-      lines.push('携帯電話: ' + data.phone, 'ORCID: ' + data.orcid, 'LinkedIn: ' + data.linkedin, 'Instagram: ' + data.instagram);
-      if (data.github) lines.push('GitHub: ' + data.github);
+      lines.push('ORCID: ' + data.orcid, 'LinkedIn: ' + data.linkedin, 'Instagram: ' + data.instagram, 'GitHub: ' + data.github);
       if (data.dribbble) lines.push('Dribbble: ' + data.dribbble);
       if (data.videoLink) lines.push('自己紹介動画: ' + data.videoLink);
       lines.push('※ 履歴書と動画ファイルはこのメールに添付してください。');
