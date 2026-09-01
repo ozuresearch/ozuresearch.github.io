@@ -34,8 +34,8 @@
   .lang{display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.04em}
   .lang button{border:0;background:transparent;padding:0;font-size:12px;letter-spacing:.04em;color:#a3a39d}
   .lang button.on{color:#17181a}
-  .join{border:1px solid #17181a;border-radius:999px;padding:11px 20px;font-size:12.5px;letter-spacing:.04em}
-  .join:hover{background:#17181a;color:#fbfbf9}
+  .join{border:1px solid #17181a;border-radius:999px;padding:11px 20px;font-size:12.5px;letter-spacing:.04em;background:#17181a;color:#fbfbf9}
+  .join:hover{background:#3a3a35;color:#fbfbf9}
   .burger{width:42px;height:42px;border-radius:12px;border:1px solid #dedeD8;background:transparent;display:grid;place-items:center}
   .burger:hover{border-color:#17181a;background:#f2f2ee}
   .burger span{display:flex;flex-direction:column;gap:4px;width:16px}
@@ -182,7 +182,7 @@
           <span style="color:#c9c9c2">/</span>
           <button type="button" data-setlang="en">English</button>
         </div>
-        <a class="join" href="#join">Join the team</a>
+        <a class="join" href="#apply">Join the team</a>
         <button class="burger" type="button" id="menuBtn" aria-label="Menu" aria-expanded="false"><span><i></i><i></i><i></i></span></button>
       </div>
     </div>
@@ -355,6 +355,13 @@
           <label class="field"><span id="lEmail"></span><input id="cEmail" type="email"></label>
           <label class="field" id="fOrg"><span id="lOrg"></span><input id="cOrg" type="text"></label>
           <label class="field" id="fPhone"><span id="lPhone"></span><input id="cPhone" type="tel"></label>
+          <label class="field" id="fOrcid"><span id="lOrcid"></span><input id="cOrcid" type="url" placeholder="https://orcid.org/0000-0000-0000-0000"></label>
+          <label class="field" id="fLinkedin"><span id="lLinkedin"></span><input id="cLinkedin" type="url" placeholder="https://www.linkedin.com/in/"></label>
+          <label class="field" id="fInstagram"><span id="lInstagram"></span><input id="cInstagram" type="url" placeholder="https://www.instagram.com/"></label>
+          <label class="field" id="fGithub"><span id="lGithub"></span><input id="cGithub" type="url" placeholder="https://github.com/"></label>
+          <label class="field" id="fDribbble"><span id="lDribbble"></span><input id="cDribbble" type="url" placeholder="https://dribbble.com/"></label>
+          <label class="field" id="fCv"><span id="lCv"></span><input id="cCv" type="url" placeholder="https://"></label>
+          <label class="field" id="fVideo"><span id="lVideo"></span><input id="cVideo" type="url" placeholder="https://youtu.be/"></label>
           <label class="field" id="fMsg"><span id="lMsg"></span><textarea id="cMsg" rows="6"></textarea></label>
           <label class="consent"><input id="cConsent" type="checkbox"><span id="lConsent"></span></label>
           <div class="submitrow">
@@ -575,8 +582,15 @@
     }).join('');
     document.getElementById('lName').textContent = t('お名前 *', 'Name *');
     document.getElementById('lEmail').textContent = t('メールアドレス *', 'Email *');
-    document.getElementById('lOrg').textContent = t('ご所属・学校名', 'Organisation or school');
-    document.getElementById('lPhone').textContent = t('電話番号 *', 'Phone *');
+    document.getElementById('lOrg').textContent = t('ご所属・学校名（任意）', 'Organisation or school (optional)');
+    document.getElementById('lPhone').textContent = t('携帯電話番号 *', 'Mobile phone *');
+    document.getElementById('lOrcid').textContent = 'ORCID URL *';
+    document.getElementById('lLinkedin').textContent = 'LinkedIn URL *';
+    document.getElementById('lInstagram').textContent = 'Instagram URL *';
+    document.getElementById('lGithub').textContent = t('GitHub URL（任意）', 'GitHub URL (optional)');
+    document.getElementById('lDribbble').textContent = t('Dribbble URL（任意）', 'Dribbble URL (optional)');
+    document.getElementById('lCv').textContent = t('履歴書（PDF）のURL *', 'Résumé (PDF) URL *');
+    document.getElementById('lVideo').textContent = t('自己紹介動画のURL（1分以内：自己紹介＋熱意＋希望研究テーマ） *', 'Self-introduction video URL (under 1 min) *');
     document.getElementById('lMsg').textContent = purpose === 'apply'
       ? t('応募の動機・自己紹介 *', 'Why you are applying, and about you *')
       : t('ご質問・ご相談内容 *', 'Your question *');
@@ -584,7 +598,9 @@
     document.getElementById('cSubmit').textContent = t('送信する', 'Send');
     document.getElementById('lNote').textContent = t('送信するとメールが作成されます。', 'Sending opens a pre-filled email.');
     document.getElementById('fOrg').hidden = purpose === 'newsletter';
-    document.getElementById('fPhone').hidden = purpose !== 'apply';
+    ['fPhone','fOrcid','fLinkedin','fInstagram','fGithub','fDribbble','fCv','fVideo'].forEach(function (id) {
+      document.getElementById(id).hidden = purpose !== 'apply';
+    });
     document.getElementById('fMsg').hidden = purpose === 'newsletter';
     var cta = document.getElementById('joinCta');
     if (cta) cta.textContent = t('お問い合わせフォーム', 'Contact form');
@@ -597,12 +613,26 @@
     var name = val('cName'), email = val('cEmail');
     if (!name || !email) { window.alert(ja ? 'お名前とメールアドレスをご入力ください。' : 'Please enter your name and email.'); return; }
     if (purpose !== 'newsletter' && !val('cMsg')) { window.alert(ja ? '内容をご入力ください。' : 'Please enter your message.'); return; }
-    if (purpose === 'apply' && !val('cPhone')) { window.alert(ja ? '電話番号をご入力ください。' : 'Please enter your phone number.'); return; }
+    if (purpose === 'apply') {
+      var need = [['cPhone', ja ? '携帯電話番号' : 'Mobile phone'], ['cOrcid', 'ORCID URL'], ['cLinkedin', 'LinkedIn URL'], ['cInstagram', 'Instagram URL'], ['cCv', ja ? '履歴書のURL' : 'Résumé URL'], ['cVideo', ja ? '自己紹介動画のURL' : 'Video URL']];
+      for (var i = 0; i < need.length; i++) {
+        if (!val(need[i][0])) { window.alert((ja ? '必須項目をご入力ください：' : 'Please fill in: ') + need[i][1]); return; }
+      }
+    }
     if (!consent || !consent.checked) { window.alert(ja ? '個人情報の取り扱いに同意してください。' : 'Please agree to the handling of your details.'); return; }
     var subjects = { question: 'OZU Research — 質問', newsletter: 'OZU Research — ニュースレター登録', apply: 'OZU Research — 応募' };
     var lines = ['種別: ' + (subjects[purpose] || purpose), 'お名前: ' + name, 'メール: ' + email];
     if (purpose !== 'newsletter' && val('cOrg')) lines.push('所属: ' + val('cOrg'));
-    if (purpose === 'apply') lines.push('電話: ' + val('cPhone'));
+    if (purpose === 'apply') {
+      lines.push('携帯電話: ' + val('cPhone'));
+      lines.push('ORCID: ' + val('cOrcid'));
+      lines.push('LinkedIn: ' + val('cLinkedin'));
+      lines.push('Instagram: ' + val('cInstagram'));
+      if (val('cGithub')) lines.push('GitHub: ' + val('cGithub'));
+      if (val('cDribbble')) lines.push('Dribbble: ' + val('cDribbble'));
+      lines.push('履歴書: ' + val('cCv'));
+      lines.push('自己紹介動画: ' + val('cVideo'));
+    }
     if (purpose !== 'newsletter') lines.push('', val('cMsg'));
     window.location.href = 'mailto:research@ozu-inc.com?subject=' + encodeURIComponent(subjects[purpose] || 'OZU Research') +
       '&body=' + encodeURIComponent(lines.join('\n'));
@@ -625,7 +655,8 @@
   function route() {
     var h = decodeURIComponent((location.hash || '').replace(/^#\/?/, '').replace(/\/$/, ''));
     var page = 'home';
-    if (h.charAt(0) === '@' && renderPerson(h.slice(1))) page = 'person';
+    if (h === 'apply') { purpose = 'apply'; page = 'contact'; }
+    else if (h.charAt(0) === '@' && renderPerson(h.slice(1))) page = 'person';
     else if (known.indexOf(h) !== -1) page = h;
     document.querySelectorAll('section[data-page]').forEach(function (s) {
       s.hidden = s.getAttribute('data-page') !== page;
