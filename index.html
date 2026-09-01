@@ -364,8 +364,8 @@
       <div class="page" style="max-width:680px">
         <p class="kicker"><a href="#">TOP</a> <span class="sep">&lt;</span> CONTACT<span data-lang="ja"> / お問い合わせ</span></p>
         <h1 style="margin-bottom:24px">Contact</h1>
-        <p class="lede" data-lang="ja">ご質問、ニュースレターの登録、未来創造プロジェクトへの応募は、こちらからお送りください。</p>
-        <p class="lede" data-lang="en" hidden>Send us a question, sign up for the newsletter, or apply to the Future Creation Project.</p>
+        <p class="lede" data-lang="ja">ご質問、ニュースレターの登録、OZU Research への応募は、こちらからお送りください。</p>
+        <p class="lede" data-lang="en" hidden>Send us a question, sign up for the newsletter, or apply to OZU Research.</p>
 
         <p class="sublabel" id="cPurposeLabel" style="margin:0 0 12px"></p>
         <div class="filters" id="cPurposes" style="margin-bottom:36px"></div>
@@ -835,7 +835,7 @@
     if (!b) return;
     purpose = b.getAttribute('data-purpose');
     var target = purpose === 'question' ? '#contact' : '#' + purpose;
-    if (location.hash !== target) { location.hash = target; return; }
+    if (location.hash !== target) { location.hash = target; }
     renderContact();
   });
   document.getElementById('cSubmit').addEventListener('click', submitContact);
