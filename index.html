@@ -784,7 +784,8 @@
   function route() {
     var h = decodeURIComponent((location.hash || '').replace(/^#\/?/, '').replace(/\/$/, ''));
     var page = 'home';
-    if (h === 'apply') { purpose = 'apply'; page = 'contact'; }
+    if (h === 'apply' || h === 'newsletter') { purpose = h; page = 'contact'; }
+    else if (h === 'contact') { purpose = 'question'; page = 'contact'; }
     else if (h.charAt(0) === '@' && renderPerson(h.slice(1))) page = 'person';
     else if (known.indexOf(h) !== -1) page = h;
     document.querySelectorAll('section[data-page]').forEach(function (s) {
@@ -831,6 +832,8 @@
     var b = e.target.closest('[data-purpose]');
     if (!b) return;
     purpose = b.getAttribute('data-purpose');
+    var target = purpose === 'question' ? '#contact' : '#' + purpose;
+    if (location.hash !== target) { location.hash = target; return; }
     renderContact();
   });
   document.getElementById('cSubmit').addEventListener('click', submitContact);
