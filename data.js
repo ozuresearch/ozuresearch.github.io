@@ -49,6 +49,18 @@ window.OZU_DATA = {
         { label: "okigo.jp", url: "https://okigo.jp/" },
         { labelJa: "ニュースリリース", label: "News release", url: "https://ozu-inc.com/news/MYIfUrjo" }
       ]
+    },
+    {
+      name: "OASIS PASS — restroom queue solution",
+      nameJa: "トイレ待機列ソリューション『OASIS PASS』",
+      dateJa: "2025年8月20日リリース", date: "Released August 20, 2025",
+      summaryJa: "野外フェスティバルや大型イベント会場のトイレ待機列問題を解決する統合型ソリューション。リアルタイム混雑可視化と誘導サポート、ダイナミックプライシング型「プレミアムトイレ」、無料トイレの一元管理ダッシュボードをまとめて提供する。2025年8月より実証実験を順次実施。",
+      summary: "An integrated solution to restroom queues at outdoor festivals and large events, combining real-time congestion visualisation with on-site guidance, dynamically priced premium restrooms, and a dashboard that manages free restrooms in one place. Field trials began in August 2025.",
+      url: "https://ozu-inc.com/news/20250820",
+      image: "assets/products/oasis-pass.png",
+      links: [
+        { labelJa: "ニュースリリース", label: "News release", url: "https://ozu-inc.com/news/20250820" }
+      ]
     }
   ],
   members: [
