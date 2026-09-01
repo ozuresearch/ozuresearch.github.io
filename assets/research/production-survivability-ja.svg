@@ -1,0 +1,25 @@
+<svg viewBox="0 0 1180 560" xmlns="http://www.w3.org/2000/svg">
+<rect width="1180" height="560" fill="#FFFFFF"></rect>
+<rect width="1180" height="46" fill="#1F3A5F"></rect>
+<text x="590.0" y="30" font-family="Noto Sans CJK JP" font-size="19" font-weight="700" fill="#FFFFFF" text-anchor="middle">研究の全体像：構念を測り、達成し、アプリで実装・実証する</text>
+<rect x="120" y="66" width="940" height="52" rx="9" fill="#EBE6F3" stroke="#7E6BB0" stroke-width="2.2"></rect><text x="590.0" y="97.76" font-family="Noto Sans CJK JP" font-size="16" font-weight="700" fill="#16263A" text-anchor="middle">上位：X Survivability 枠組み ／ survivability の理論</text>
+<rect x="150" y="150" width="880" height="88" rx="9" fill="#FFF7E6" stroke="#D9A441" stroke-width="2.2"></rect>
+<text x="590.0" y="184" font-family="Noto Sans CJK JP" font-size="19" font-weight="700" fill="#1F3A5F" text-anchor="middle">中心構念：Production Survivability</text>
+<text x="590.0" y="214" font-family="Noto Sans CJK JP" font-size="14" font-weight="500" fill="#5A6B7B" text-anchor="middle">生成 AI 出力が商用基準（法務・ブランド・技術・創造・受容）に耐えるか</text>
+<rect x="120" y="284" width="440" height="98" rx="9" fill="#E8F1F8" stroke="#2E75B6" stroke-width="2.2"></rect>
+<text x="340" y="318" font-family="Noto Sans CJK JP" font-size="17" font-weight="700" fill="#1F3A5F" text-anchor="middle">測る（Measure）</text>
+<text x="340" y="346" font-family="Noto Sans CJK JP" font-size="14" font-weight="500" fill="#16263A" text-anchor="middle">77 セル × 6 次元ルーブリック</text>
+<text x="340" y="368" font-family="Noto Sans CJK JP" font-size="14" font-weight="500" fill="#16263A" text-anchor="middle">ゲートカスケード・Vision-LLM judge ＋ブラインド専門家</text>
+<rect x="620" y="284" width="440" height="98" rx="9" fill="#DCEFE0" stroke="#3C9A5F" stroke-width="2.2"></rect>
+<text x="840" y="318" font-family="Noto Sans CJK JP" font-size="17" font-weight="700" fill="#1F3A5F" text-anchor="middle">達成する（Achieve）</text>
+<text x="840" y="346" font-family="Noto Sans CJK JP" font-size="14" font-weight="500" fill="#16263A" text-anchor="middle">閉ループ修正・エージェント生成</text>
+<text x="840" y="368" font-family="Noto Sans CJK JP" font-size="13" font-weight="500" fill="#16263A" text-anchor="middle">criteria / treatment 生成・実時間コンポジット</text>
+<rect x="120" y="430" width="940" height="60" rx="9" fill="#EAF2FA" stroke="#2E75B6" stroke-width="2.2"></rect><text x="590.0" y="465.76" font-family="Noto Sans CJK JP" font-size="16" font-weight="700" fill="#16263A" text-anchor="middle">共有スパイン：Brand KG ＋ survivability 評価器</text>
+<line x1="340" y1="430" x2="340" y2="391" stroke="#2E75B6" stroke-width="2.6"></line><path d="M 340 382 L 333 394 L 347 394 Z" fill="#2E75B6"></path>
+<line x1="840" y1="430" x2="840" y2="391" stroke="#2E75B6" stroke-width="2.6"></line><path d="M 840 382 L 833 394 L 847 394 Z" fill="#2E75B6"></path>
+<line x1="340" y1="284" x2="340" y2="247" stroke="#2E75B6" stroke-width="2.6"></line><path d="M 340 238 L 333 250 L 347 250 Z" fill="#2E75B6"></path>
+<line x1="840" y1="284" x2="840" y2="247" stroke="#3C9A5F" stroke-width="2.6"></line><path d="M 840 238 L 833 250 L 847 250 Z" fill="#3C9A5F"></path>
+<line x1="590.0" y1="150" x2="590.0" y2="127" stroke="#7E6BB0" stroke-width="2.6" stroke-dasharray="6 4"></line><path d="M 590.0 118 L 583.0 130 L 597.0 130 Z" fill="#7E6BB0"></path>
+<text x="590.0" y="526" font-family="Noto Sans CJK JP" font-size="14" font-weight="500" fill="#5A6B7B" text-anchor="middle">実装と実証：Co-* アプリが既存の人的役割の一部を自動化し、実装・実証する。</text>
+<text x="590.0" y="548" font-family="Noto Sans CJK JP" font-size="14" font-weight="500" fill="#5A6B7B" text-anchor="middle">共有スパインが「測る」と「達成」の両腕を支え、両腕が中心構念を検証し、枠組み・理論がそれらを束ねる。</text>
+</svg>

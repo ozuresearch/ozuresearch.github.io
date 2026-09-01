@@ -1,0 +1,98 @@
+<?xml version="1.0"?><svg viewBox="0 0 1240 700" xmlns="http://www.w3.org/2000/svg" font-family="'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Yu Gothic UI',Meiryo,'Noto Sans CJK JP','Noto Sans JP',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#37474F"></path>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1240" height="700" fill="#FFFFFF"></rect>
+  <text x="620" y="32" text-anchor="middle" font-size="19.8" font-weight="bold" fill="#263238">Fig. 1  System architecture: Input → System → Output (Constraint = conditions &amp; filter)</text>
+
+  
+  <rect x="30" y="52" width="300" height="34" rx="6" fill="#1565C0"></rect>
+  <text x="180" y="75" text-anchor="middle" font-size="14.4" font-weight="bold" fill="#FFFFFF">Input</text>
+  <rect x="370" y="52" width="420" height="34" rx="6" fill="#1B5E20"></rect>
+  <text x="580" y="75" text-anchor="middle" font-size="14.4" font-weight="bold" fill="#FFFFFF">System</text>
+  <rect x="830" y="52" width="380" height="34" rx="6" fill="#F57F17"></rect>
+  <text x="1020" y="75" text-anchor="middle" font-size="14.4" font-weight="bold" fill="#FFFFFF">Output / Application</text>
+
+  
+  <rect x="30" y="100" width="300" height="170" rx="10" fill="#E3F2FD" stroke="#1565C0" stroke-width="2"></rect>
+  <text x="180" y="126" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#0D47A1">Real-time input (dynamic)</text>
+  <text x="48" y="153" font-size="12.2" fill="#263238">Venue camera stream</text>
+  <text x="48" y="178" font-size="12.2" fill="#263238">Audience excitement (audio)</text>
+  <text x="48" y="203" font-size="12.2" fill="#263238">Venue photos &amp; videos</text>
+  <text x="48" y="228" font-size="12.2" fill="#263238">Current track &amp; BPM</text>
+  <text x="48" y="255" font-size="10.8" fill="#546E7A">img / vid / audio streams</text>
+
+  <rect x="30" y="290" width="300" height="170" rx="10" fill="#E8EAF6" stroke="#3949AB" stroke-width="2"></rect>
+  <text x="180" y="316" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#283593">Context input (quasi-static)</text>
+  <text x="48" y="343" font-size="12.2" fill="#263238">Instagram / TikTok / YouTube</text>
+  <text x="48" y="368" font-size="12.2" fill="#263238">Artist profile</text>
+  <text x="48" y="393" font-size="12.2" fill="#263238">Brand guidelines</text>
+  <text x="48" y="418" font-size="12.2" fill="#263238">Concert brief (DOC)</text>
+  <text x="48" y="445" font-size="10.8" fill="#546E7A">ARTIST / BRAND / CONCERT</text>
+
+  
+  <rect x="370" y="100" width="420" height="360" rx="12" fill="#F1F8F1" stroke="#1B5E20" stroke-width="2.5"></rect>
+  
+  <rect x="395" y="125" width="370" height="120" rx="8" fill="#E8F5E9" stroke="#2E7D32" stroke-width="2"></rect>
+  <text x="580" y="152" text-anchor="middle" font-size="14.4" font-weight="bold" fill="#1B5E20">Generation engine (CSP solver + generative AI)</text>
+  <text x="580" y="178" text-anchor="middle" font-size="11.7" fill="#263238">Fuses heterogeneous context in real time,</text>
+  <text x="580" y="200" text-anchor="middle" font-size="11.7" fill="#263238">generates images / ~3 s clips → composes cues (Q)</text>
+  <text x="580" y="228" text-anchor="middle" font-size="10.8" fill="#546E7A">Searches solutions within the latency budget</text>
+  
+  <rect x="395" y="265" width="370" height="120" rx="8" fill="#FCE4EC" stroke="#AD1457" stroke-width="2"></rect>
+  <text x="580" y="292" text-anchor="middle" font-size="14.4" font-weight="bold" fill="#880E4F">Decision-support UI (Human-in-the-Loop)</text>
+  <circle cx="520" cy="330" r="18" fill="#C8E6C9" stroke="#2E7D32" stroke-width="2"></circle>
+  <text x="520" y="336" text-anchor="middle" font-size="12.6" fill="#1B5E20">○</text>
+  <circle cx="640" cy="330" r="18" fill="#FFCDD2" stroke="#C62828" stroke-width="2"></circle>
+  <text x="640" y="336" text-anchor="middle" font-size="12.6" fill="#B71C1C">×</text>
+  <text x="520" y="370" text-anchor="middle" font-size="10.8" fill="#263238">Adopt</text>
+  <text x="640" y="370" text-anchor="middle" font-size="10.8" fill="#263238">Dismiss</text>
+  <text x="580" y="418" text-anchor="middle" font-size="11.2" fill="#546E7A">Expert VJ/director decides; log feeds back to constraints</text>
+  <line x1="580" y1="245" x2="580" y2="260" stroke="#37474F" stroke-width="2.5" marker-end="url(#arr)"></line>
+
+  
+  <rect x="830" y="100" width="380" height="180" rx="10" fill="#FFFDE7" stroke="#F9A825" stroke-width="2"></rect>
+  <text x="1020" y="126" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#F57F17">Output</text>
+  <text x="848" y="152" font-size="12.2" fill="#263238">(A) Time-axis stream t → (continuous cue sequence)</text>
+  <rect x="870" y="163" width="36" height="26" rx="4" fill="#FFF" stroke="#F9A825"></rect>
+  <rect x="915" y="163" width="36" height="26" rx="4" fill="#FFF" stroke="#F9A825"></rect>
+  <rect x="960" y="163" width="36" height="26" rx="4" fill="#FFF" stroke="#F9A825"></rect>
+  <text x="888" y="181" text-anchor="middle" font-size="10.8">q1</text>
+  <text x="933" y="181" text-anchor="middle" font-size="10.8">q2</text>
+  <text x="978" y="181" text-anchor="middle" font-size="10.8">q3</text>
+  <text x="848" y="215" font-size="12.2" fill="#263238">(B) Set of images / videos (candidate materials)</text>
+  <text x="848" y="245" font-size="11.2" fill="#546E7A">→ VJ-tool integration / auto-delivery to Google Drive</text>
+
+  <rect x="830" y="300" width="380" height="160" rx="10" fill="#ECEFF1" stroke="#37474F" stroke-width="2"></rect>
+  <text x="1020" y="326" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#263238">Applications</text>
+  <text x="848" y="353" font-size="11.7" fill="#263238">Live / concert visuals (primary target)</text>
+  <text x="848" y="378" font-size="11.7" fill="#263238">Apple TV app   Office ambience</text>
+  <text x="848" y="403" font-size="11.7" fill="#263238">Digital-signage ambient video</text>
+  <text x="848" y="428" font-size="11.7" fill="#263238">Screensaver + real-time ad delivery</text>
+
+  
+  <rect x="370" y="510" width="420" height="150" rx="10" fill="#F3E5F5" stroke="#6A1B9A" stroke-width="2.5"></rect>
+  <text x="580" y="540" text-anchor="middle" font-size="14.4" font-weight="bold" fill="#4A148C">CONSTRAINT (conditions &amp; filter)</text>
+  <text x="580" y="568" text-anchor="middle" font-size="11.7" fill="#263238">World-view, palette, tempo, concert goal, brand rules, prohibitions</text>
+  <text x="580" y="592" text-anchor="middle" font-size="11.7" fill="#263238">formalized as a constraint set, updated dynamically from inputs</text>
+  <text x="580" y="620" text-anchor="middle" font-size="10.8" fill="#546E7A">= &#34;conditions&#34; for generation and &#34;filter&#34; for output</text>
+
+  
+  <line x1="330" y1="185" x2="365" y2="185" stroke="#37474F" stroke-width="2.5" marker-end="url(#arr)"></line>
+  <line x1="330" y1="375" x2="365" y2="375" stroke="#37474F" stroke-width="2.5" marker-end="url(#arr)"></line>
+  <line x1="790" y1="185" x2="825" y2="185" stroke="#37474F" stroke-width="2.5" marker-end="url(#arr)"></line>
+  <line x1="790" y1="375" x2="825" y2="375" stroke="#37474F" stroke-width="2.5" marker-end="url(#arr)"></line>
+  <line x1="580" y1="505" x2="580" y2="468" stroke="#6A1B9A" stroke-width="3" marker-end="url(#arr)"></line>
+  <text x="612" y="492" font-size="11.2" fill="#4A148C">supplies constraint set</text>
+  
+  <path d="M 180 460 C 180 585 250 585 365 585" fill="none" stroke="#3949AB" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#arr)"></path>
+  <text x="215" y="640" font-size="10.8" fill="#283593">constraints derived from context input</text>
+  
+  <path d="M 795 330 C 1000 330 1000 585 795 585" fill="none" stroke="#AD1457" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arr)"></path>
+  <text x="1000" y="500" font-size="10.8" fill="#AD1457">adopt / dismiss decisions</text>
+  <text x="1000" y="518" font-size="10.8" fill="#AD1457">fed back to constraints</text>
+
+  <text x="620" y="688" text-anchor="middle" font-size="10.8" fill="#546E7A">Before: pre-made assets + human heuristics (static, tacit) → This work: input context solved as constraints; humans make the final call (dynamic, AI-collaborative)</text>
+</svg>

@@ -1,0 +1,98 @@
+<?xml version="1.0"?><svg viewBox="0 0 1240 700" xmlns="http://www.w3.org/2000/svg" font-family="'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Yu Gothic UI',Meiryo,'Noto Sans CJK JP','Noto Sans JP',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#37474F"></path>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1240" height="700" fill="#FFFFFF"></rect>
+  <text x="620" y="32" text-anchor="middle" font-size="22" font-weight="bold" fill="#263238">図1　システムアーキテクチャ概要：入力系 → 処理系 → 出力系（制約＝条件・フィルタ）</text>
+
+  
+  <rect x="30" y="52" width="300" height="34" rx="6" fill="#1565C0"></rect>
+  <text x="180" y="75" text-anchor="middle" font-size="16" font-weight="bold" fill="#FFFFFF">Input（入力系）</text>
+  <rect x="370" y="52" width="420" height="34" rx="6" fill="#1B5E20"></rect>
+  <text x="580" y="75" text-anchor="middle" font-size="16" font-weight="bold" fill="#FFFFFF">System（処理系）</text>
+  <rect x="830" y="52" width="380" height="34" rx="6" fill="#F57F17"></rect>
+  <text x="1020" y="75" text-anchor="middle" font-size="16" font-weight="bold" fill="#FFFFFF">Output（出力系）／ Application</text>
+
+  
+  <rect x="30" y="100" width="300" height="170" rx="10" fill="#E3F2FD" stroke="#1565C0" stroke-width="2"></rect>
+  <text x="180" y="126" text-anchor="middle" font-size="15" font-weight="bold" fill="#0D47A1">リアルタイム入力（動的）</text>
+  <text x="48" y="153" font-size="13.5" fill="#263238">会場カメラ映像ストリーム</text>
+  <text x="48" y="178" font-size="13.5" fill="#263238">観客の盛り上がり（音声）</text>
+  <text x="48" y="203" font-size="13.5" fill="#263238">会場の写真・動画</text>
+  <text x="48" y="228" font-size="13.5" fill="#263238">演奏中の楽曲・BPM</text>
+  <text x="48" y="255" font-size="12" fill="#546E7A">img ／ vid ／ audio ストリーム</text>
+
+  <rect x="30" y="290" width="300" height="170" rx="10" fill="#E8EAF6" stroke="#3949AB" stroke-width="2"></rect>
+  <text x="180" y="316" text-anchor="middle" font-size="15" font-weight="bold" fill="#283593">コンテクスト入力（準静的）</text>
+  <text x="48" y="343" font-size="13.5" fill="#263238">Instagram / TikTok / YouTube</text>
+  <text x="48" y="368" font-size="13.5" fill="#263238">アーティストプロフィール</text>
+  <text x="48" y="393" font-size="13.5" fill="#263238">ブランド（BRAND）資料</text>
+  <text x="48" y="418" font-size="13.5" fill="#263238">コンサート趣意書（DOC）</text>
+  <text x="48" y="445" font-size="12" fill="#546E7A">ARTIST ／ BRAND ／ CONCERT</text>
+
+  
+  <rect x="370" y="100" width="420" height="360" rx="12" fill="#F1F8F1" stroke="#1B5E20" stroke-width="2.5"></rect>
+  
+  <rect x="395" y="125" width="370" height="120" rx="8" fill="#E8F5E9" stroke="#2E7D32" stroke-width="2"></rect>
+  <text x="580" y="152" text-anchor="middle" font-size="16" font-weight="bold" fill="#1B5E20">制約充足・生成エンジン（CSPソルバ ＋ 生成AI）</text>
+  <text x="580" y="178" text-anchor="middle" font-size="13" fill="#263238">多様な文脈情報をリアルタイムに合成し、</text>
+  <text x="580" y="200" text-anchor="middle" font-size="13" fill="#263238">画像・約3秒の短尺動画を生成 → キュー（Q）を構成</text>
+  <text x="580" y="228" text-anchor="middle" font-size="12" fill="#546E7A">制約集合を満たす解を探索（レイテンシ予算内）</text>
+  
+  <rect x="395" y="265" width="370" height="120" rx="8" fill="#FCE4EC" stroke="#AD1457" stroke-width="2"></rect>
+  <text x="580" y="292" text-anchor="middle" font-size="16" font-weight="bold" fill="#880E4F">意思決定支援 UI（Human-in-the-Loop）</text>
+  <circle cx="520" cy="330" r="18" fill="#C8E6C9" stroke="#2E7D32" stroke-width="2"></circle>
+  <text x="520" y="336" text-anchor="middle" font-size="14" fill="#1B5E20">○</text>
+  <circle cx="640" cy="330" r="18" fill="#FFCDD2" stroke="#C62828" stroke-width="2"></circle>
+  <text x="640" y="336" text-anchor="middle" font-size="14" fill="#B71C1C">×</text>
+  <text x="520" y="370" text-anchor="middle" font-size="12" fill="#263238">採用</text>
+  <text x="640" y="370" text-anchor="middle" font-size="12" fill="#263238">却下（dismiss）</text>
+  <text x="580" y="418" text-anchor="middle" font-size="12.5" fill="#546E7A">専門家VJ・監督が最終判断／判断ログは制約へフィードバック</text>
+  <line x1="580" y1="245" x2="580" y2="260" stroke="#37474F" stroke-width="2.5" marker-end="url(#arr)"></line>
+
+  
+  <rect x="830" y="100" width="380" height="180" rx="10" fill="#FFFDE7" stroke="#F9A825" stroke-width="2"></rect>
+  <text x="1020" y="126" text-anchor="middle" font-size="15" font-weight="bold" fill="#F57F17">アウトプット</text>
+  <text x="848" y="152" font-size="13.5" fill="#263238">(A) 時間軸ストリーム t →（連続キュー列）</text>
+  <rect x="870" y="163" width="36" height="26" rx="4" fill="#FFF" stroke="#F9A825"></rect>
+  <rect x="915" y="163" width="36" height="26" rx="4" fill="#FFF" stroke="#F9A825"></rect>
+  <rect x="960" y="163" width="36" height="26" rx="4" fill="#FFF" stroke="#F9A825"></rect>
+  <text x="888" y="181" text-anchor="middle" font-size="12">q1</text>
+  <text x="933" y="181" text-anchor="middle" font-size="12">q2</text>
+  <text x="978" y="181" text-anchor="middle" font-size="12">q3</text>
+  <text x="848" y="215" font-size="13.5" fill="#263238">(B) 画像・動画の集合（素材候補セット）</text>
+  <text x="848" y="245" font-size="12.5" fill="#546E7A">→ VJツール連携・Google Drive 自動配信</text>
+
+  <rect x="830" y="300" width="380" height="160" rx="10" fill="#ECEFF1" stroke="#37474F" stroke-width="2"></rect>
+  <text x="1020" y="326" text-anchor="middle" font-size="15" font-weight="bold" fill="#263238">アプリケーション（応用展開）</text>
+  <text x="848" y="353" font-size="13" fill="#263238">ライブ・コンサート演出（本研究の主対象）</text>
+  <text x="848" y="378" font-size="13" fill="#263238">Apple TV アプリ　オフィス空間演出</text>
+  <text x="848" y="403" font-size="13" fill="#263238">デジタルサイネージ環境映像</text>
+  <text x="848" y="428" font-size="13" fill="#263238">スクリーンセーバー＋リアルタイム広告配信</text>
+
+  
+  <rect x="370" y="510" width="420" height="150" rx="10" fill="#F3E5F5" stroke="#6A1B9A" stroke-width="2.5"></rect>
+  <text x="580" y="540" text-anchor="middle" font-size="16" font-weight="bold" fill="#4A148C">制約（条件・フィルタ）＝ CONSTRAINT</text>
+  <text x="580" y="568" text-anchor="middle" font-size="13" fill="#263238">世界観・色調・テンポ・コンサートの目的・ブランド規定・禁止事項</text>
+  <text x="580" y="592" text-anchor="middle" font-size="13" fill="#263238">を制約集合として定式化し、入力に応じて動的に更新</text>
+  <text x="580" y="620" text-anchor="middle" font-size="12" fill="#546E7A">＝生成の「条件」であり出力の「フィルタ」</text>
+
+  
+  <line x1="330" y1="185" x2="365" y2="185" stroke="#37474F" stroke-width="2.5" marker-end="url(#arr)"></line>
+  <line x1="330" y1="375" x2="365" y2="375" stroke="#37474F" stroke-width="2.5" marker-end="url(#arr)"></line>
+  <line x1="790" y1="185" x2="825" y2="185" stroke="#37474F" stroke-width="2.5" marker-end="url(#arr)"></line>
+  <line x1="790" y1="375" x2="825" y2="375" stroke="#37474F" stroke-width="2.5" marker-end="url(#arr)"></line>
+  <line x1="580" y1="505" x2="580" y2="468" stroke="#6A1B9A" stroke-width="3" marker-end="url(#arr)"></line>
+  <text x="612" y="492" font-size="12.5" fill="#4A148C">制約集合を供給</text>
+  
+  <path d="M 180 460 C 180 585 250 585 365 585" fill="none" stroke="#3949AB" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#arr)"></path>
+  <text x="215" y="640" font-size="12" fill="#283593">コンテクスト入力から制約を生成</text>
+  
+  <path d="M 795 330 C 1000 330 1000 585 795 585" fill="none" stroke="#AD1457" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arr)"></path>
+  <text x="1000" y="500" font-size="12" fill="#AD1457">採用/却下の判断を</text>
+  <text x="1000" y="518" font-size="12" fill="#AD1457">制約へフィードバック</text>
+
+  <text x="620" y="688" text-anchor="middle" font-size="12" fill="#546E7A">従来：事前制作素材＋人間の経験則（静的・属人的）　→　本研究：入力系の文脈を制約として処理系が解き、人間は最終判断に集中（動的・AI協調）</text>
+</svg>

@@ -66,6 +66,15 @@
   .index a em{font-style:normal;font-size:12.5px;color:#8d8d87}
   .locs{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px;max-width:960px}
   .locs>div{border-top:1px solid #17181a;padding-top:24px;display:flex;flex-direction:column;gap:14px}
+  .projects{padding:0 0 120px;max-width:980px;display:flex;flex-direction:column;gap:96px}
+  .project{display:flex;flex-direction:column;gap:24px;border-top:1px solid #17181a;padding-top:28px}
+  .project h2{margin:0;font-size:clamp(26px,3.4vw,38px);line-height:1.15;letter-spacing:-.02em;font-weight:500}
+  .pnum{margin:0;font-size:11px;letter-spacing:.24em;color:#a3a39d}
+  .plede{margin:0;font-size:17px;line-height:1.8;color:#17181a;max-width:760px;text-wrap:pretty}
+  .pbody{margin:0;font-size:15.5px;line-height:1.95;color:#4a4a45;max-width:760px;text-wrap:pretty}
+  .pnote{margin:0;font-size:13.5px;line-height:1.8;color:#8d8d87;max-width:760px}
+  .pclaim{margin:0;padding:20px 24px;background:#f4f4f0;font-size:15.5px;line-height:1.9;color:#17181a;max-width:760px;text-wrap:pretty}
+  .pfig{width:100%;display:block;border:1px solid #ebebe6;background:#fbfbf9}
   .locs h2{margin:0;font-size:24px;font-weight:500;letter-spacing:-.01em}
   .locs p{margin:0;font-size:15px;line-height:1.8;color:#4a4a45}
   .locpic{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#eeeeea}
@@ -226,10 +235,43 @@
     </section>
 
     <section data-page="research" hidden>
-      <div class="page" style="padding-bottom:56px">
+      <div class="page-wide" style="padding-bottom:40px;max-width:760px">
         <p class="kicker"><a href="#">TOP</a> <span class="sep">&lt;</span> RESEARCH<span data-lang="ja"> / リサーチ</span></p>
         <h1>Research</h1>
         <p class="tbd">TBD</p>
+      </div>
+      <div class="projects">
+        <article class="project">
+          <p class="pnum">RESEARCH PROJECT 01</p>
+          <h2>Production Survivability</h2>
+          <p class="plede">AI研究が「本番」で実用的であるために必要なのは、実践的な評価指標である。それを体系的に理論化し、AI応用実践研究の研究基盤を定義する。</p>
+          <div>
+            <img class="pfig" data-lang="ja" src="assets/research/production-survivability-ja.svg" alt="Production Survivability">
+            <img class="pfig" data-lang="en" src="assets/research/production-survivability-en.svg" alt="Production Survivability" hidden>
+          </div>
+          <p class="pbody">本研究の中心は Production Survivability（生成 AI の出力が「商用に耐える＝納品できる」か）である。生成 AI は見栄えのする画像・動画を出せるが、広告制作の現場では法務・ブランド・技術・創造・受容の各基準を満たして初めて出荷できる。本ラボは、この「商用に耐えるか」を勘や主観ではなく測定可能な構念（construct）として定式化し、それを満たす制作を支援することを目的とする。単なる指標づくりではなく、survivability を妥当性のある測定構念として操作化することが研究上の主要貢献である。</p>
+          <p class="pnote">本研究は、武蔵野大学データサイエンス学部 / アジアAI研究所 / 浦木・高橋研究室との共同研究として実施しています。</p>
+        </article>
+        <article class="project">
+          <p class="pnum">RESEARCH PROJECT 02</p>
+          <h2>Constraint-Based Direction Generation for Professional-Quality Video Production</h2>
+          <p class="plede">プロフェッショナル品質の映像制作のための動的“演出生成”手法</p>
+          <div>
+            <img class="pfig" data-lang="ja" src="assets/research/direction-generation-ja.svg" alt="Constraint-Based Direction Generation">
+            <img class="pfig" data-lang="en" src="assets/research/direction-generation-en.svg" alt="Constraint-Based Direction Generation" hidden>
+          </div>
+          <p class="sublabel">研究の概要（要旨）</p>
+          <p class="pbody">生成AIによるテキスト・画像・動画の「個別部品」の生成は急速に普及したが、プロフェッショナルの映像制作現場では、生成された素材をそのまま使うことはできない。原因は素材単体の画質ではなく、Story（物語）・Narrative（語り口）・Composition（構成）・Emotion（感情）・Color（色彩）・Context（文脈）・Culture（文化）という演出の7構成要素が、生成の単位に含まれていないことにある。本研究は、プロの演出家の演出・知見を用いて、生成の単位を素材から「演出」へ引き上げる動的演出生成手法を提案する。具体的には、静的素材（過去の写真・動画・SNSアーカイブ）、動的素材（その場で撮影・取得される映像・音声・盛り上がり）、および目的と実時間制約を入力とし、演出の7構成要素を制約語彙とする制約充足問題（CSP）として演出計画（キュー列・編集指示・生成プロンプト）の生成を定式化する。生成された演出候補に対して演出家が「採用／却下・加工・編集」を行うHuman-in-the-Loop環境を構築することで、単体では使えないAI生成素材群も、演出制約と専門家の判断を経て本番投入可能な成果物へと変換される。実証は実時間制約の厳しさが異なる複数の現場で行う：①結婚式ハイライト動画アプリ（式終了までの約2時間という準リアルタイム制約）、②VJ・ライブ実演（OZUの現場、秒単位のリアルタイム制約＝フラッグシップ事例、旧タイトルの研究内容）、③インフルエンサー・アーティストの配信向けツール（非同期）。専門家VJ・監督である新城本人が筆頭研究者として実証の場と専門家評価を提供し、入力ソース漸増の系統的評価と制約規模×リアルタイム性の定量評価を通じて、属人的だった演出知を計算可能にする。なお本計画は、新城良明（OZU, Inc. 社長）の卒業論文および修士論文の研究計画を兼ねる。</p>
+          <p class="pclaim">中核主張（1文）：AIに「素材」ではなく「演出」を生成させ、専門家の選択・加工・編集と組み合わせることで、単体では使えないAI生成素材群をプロフェッショナル品質の映像成果物に変換できる。</p>
+          <div class="chips">
+            <span class="tag">演出生成（Direction Generation）</span>
+            <span class="tag">制約充足問題（CSP）</span>
+            <span class="tag">Human-in-the-Loop</span>
+            <span class="tag">リアルタイム生成</span>
+            <span class="tag">VJ・ライブ演出</span>
+            <span class="tag">Synthetic Serendipity</span>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -480,10 +522,10 @@
     document.querySelectorAll('section[data-page]').forEach(function (s) {
       s.hidden = s.getAttribute('data-page') !== page;
     });
-    document.querySelector('section[data-pubs]').hidden = !(page === 'research' || page === 'publications');
+    document.querySelector('section[data-pubs]').hidden = page !== 'publications';
     if (page === 'team') renderTeam();
     if (page === 'products') renderProducts();
-    if (page === 'research' || page === 'publications') renderPubs();
+    if (page === 'publications') renderPubs();
     drawer.hidden = true;
     menuBtn.setAttribute('aria-expanded', 'false');
     window.scrollTo(0, 0);
