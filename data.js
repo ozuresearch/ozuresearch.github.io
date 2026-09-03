@@ -129,13 +129,13 @@ window.OZU_DATA = {
       titleJa: "ループを閉じる —— ブランド整合的な画像修正を自律化する判定情報型ストッピング",
       venue: "ICAST 2026, Surabaya, Indonesia, October 9–10, 2026",
       venueJa: "ICAST 2026, インドネシア・スラバヤ, 2026年10月9〜10日",
-      authors: ["wajdi", "obed", "takahashi"],
+      authors: ["wajdi", "obed", "tamura", "shinjo", "takahashi", { name: "浦木 麻子", nameEn: "Asako Uraki" }],
       url: "https://aix.sc/publications/icast2026-closing-the-loop",
       figureJa: "assets/papers/icast2026-closing-the-loop-ja.png",
       figure: "assets/papers/icast2026-closing-the-loop-en.png",
-      summaryJa: "生成AIによる広告画像の修正ループにおける「いつ止めるか」を扱う。6次元の実用到達度ルーブリックと修正可能性を付与した失敗モード分類を土台に、閉ループ修正エンジンと判定情報型ストッピング（VIS）を提案。ブランドXの7成果物・21回の実行で、収束率を維持しながら（81%対81%）生成呼び出しを28%削減した（59回対82回）。",
-      summary: "Addresses when to stop in closed-loop revision of advertising images with generative AI. Building on a six-dimensional production-survivability rubric and a failure-mode taxonomy annotated with repairability, the paper proposes a closed-loop revision engine with Verdict-Informed Stopping (VIS). Across 7 deliverables and 21 runs for Brand X, VIS cut generation calls by 28% (59 vs. 82) while holding final convergence at 81%.",
-      tags: ["Production_Survivability", "generative_AI", "closed-loop_revision", "verdict-informed_stopping", "advertising_technology"],
+      summaryJa: "生成画像の自律的な修正ループには制御上の課題がある。各試行後に次元別の品質判定が得られたとき、システムはいつ出力を受け入れて止まり、いつ生成予算を次の修正サイクルに使うべきか。固定回数での停止や二値の GO/NO-GO ゲートは、どの次元が・どの程度失敗し・それがプロンプトで修正可能かという診断情報を捨ててしまう。本論文は6次元の実用到達度ルーブリックと修正可能性タグ付き失敗モード分類に基づく閉ループ修正エンジンを提示し、集約 GO/NO-GO ゲートと次元別の修正可能性チェックを組み合わせた判定情報型ストッピング（VIS）を提案する。ブランドXの7成果物・21回の実行で、VIS は固定回数停止と同等の最終収束率（81%対81%）を維持しつつ生成呼び出しを28%削減し（59回対82回）、14%の実行で早期予算停止を発動した。",
+      summary: "Autonomous revision loops for generative image production face a control problem: given a per-dimension quality verdict after each attempt, when should the system stop and accept the output, and when should it spend more of the generation budget on another correction cycle? Fixed-budget stopping and binary GO/NO-GO gates ignore which dimensions failed, how severely, and whether those failures are correctable at the prompt level. This paper presents a Closed-Loop Revision Engine built on a six-dimensional production-survivability rubric and a correctability-tagged failure-mode taxonomy, and proposes Verdict-Informed Stopping (VIS), which combines an aggregate GO/NO-GO gate with a per-dimension correctability check. Across 21 runs on seven Brand X deliverables, VIS matched fixed-budget stopping on final convergence (81% vs. 81%) while using 28% fewer generation calls (59 vs. 82) and triggering early budget stops in 14% of runs.",
+      tags: ["generative_AI", "closed-loop_revision", "verdict-informed_stopping", "Production_Survivability", "autonomous_quality_assurance", "advertising_technology"],
       links: [{ label: "AIx{} で読む", url: "https://aix.sc/publications/icast2026-closing-the-loop" }]
     },
     {
