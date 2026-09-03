@@ -3,7 +3,7 @@
 
    members: {
      handle: "takahashi",              // URL は #@takahashi
-     name: "高橋 佑輔",                 // 日本語表示名
+     name: "高橋 雄介",                 // 日本語表示名
      nameEn: "Yusuke Takahashi",
      roleJa: "研究員", role: "Researcher",
      photo: "assets/people/takahashi.jpg",   // 省略時はイニシャル表示
@@ -82,7 +82,7 @@ window.OZU_DATA = {
     },
     {
       handle: "tamura",
-      name: "田村 昂大", nameEn: "Takashiro Tamura",
+      name: "田村 昂大", nameEn: "Takahiro Tamura",
       roleJa: "主任研究員", role: "Principal Researcher",
       photo: "assets/people/tamura.jpg",
       bio: "Principal Researcher at OZU Research. Head of international and industry–academia partnerships at OZU Inc.",
