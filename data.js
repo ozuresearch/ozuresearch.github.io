@@ -3,7 +3,7 @@
 
    members: {
      handle: "takahashi",              // URL は #@takahashi
-     name: "高橋 雄介",                 // 日本語表示名
+     name: "高橋 佑輔",                 // 日本語表示名
      nameEn: "Yusuke Takahashi",
      roleJa: "研究員", role: "Researcher",
      photo: "assets/people/takahashi.jpg",   // 省略時はイニシャル表示
@@ -106,6 +106,22 @@ window.OZU_DATA = {
     }
   ],
   publications: [
+    {
+      type: "paper", year: 2026,
+      statusJa: "採択（登壇予定）", status: "To appear",
+      title: "Almost Nobody Can Deliver, While Everyone Can Generate: The Deployability Gap in AI Video Production",
+      titleJa: "生成できても届けられない —— AI映像制作における実装可能性の格差",
+      venue: "IES 2026, Yogyakarta, Indonesia",
+      venueJa: "IES 2026, インドネシア・ジョグジャカルタ",
+      authors: ["tamura", "shinjo", "takahashi", { name: "浦木 麻子", nameEn: "Asako Uraki" }],
+      url: "https://aix.sc/publications/ies2026-deployability-gap",
+      figureJa: "assets/papers/ies2026-deployability-gap-ja.png",
+      figure: "assets/papers/ies2026-deployability-gap-en.png",
+      summaryJa: "いまや誰でもプロンプトからプロらしい映像を生成できますが、それを対価を払うクライアントに納品できる人はほとんどいません。日本の大手パーソナルケアブランドの実際の広告キャンペーンの内側で、現行の画像・動画モデルに2,000回以上の生成をかけて、使えたカットはごく僅かでした。AI映像は納品可能でしたが、それは経験ある実務者が「技術が生き残れるカット」を見極め、その周りにワークフローを組んだ場合に限られます。本研究はこの障壁を Deployability Gap（納品可能性の断層）と名づけ、ラベル忠実性・解像度・演出制御・ライセンスにまたがって累積する構造的なミスマッチとして記述し、Prompt Accumulation Contradiction（プロンプト累積矛盾, PAC）を含む5つの失敗モードを特定しました。そして問いを「AIはこれを生成できるか」から「これはプロの制約下で納品できるか」へ組み替える Commercial Deployability Framework（商用納品可能性フレームワーク）を提案します。",
+      summary: "Anyone can now generate professional-looking video from a prompt; almost no one can deliver it to a paying client. Inside a live advertising campaign for a major Japanese personal-care brand, more than 2,000 generations across current image and video models yielded only a handful of usable cuts: AI video proved deliverable, but only when an experienced practitioner judged which cuts the technology could survive and built the workflow around them. We name this barrier the Deployability Gap, a structural mismatch compounding across label fidelity, resolution, directorial control, and licensing. We identify five failure modes, including Prompt Accumulation Contradiction (PAC), and propose a Commercial Deployability Framework that reframes the question from “can AI generate this?” to “can this be delivered under professional constraints?”",
+      tags: ["Deployability_Gap", "generative_AI", "AI_video_production", "Prompt_Accumulation_Contradiction", "advertising_technology"],
+      links: [{ label: "AIx{} で読む", url: "https://aix.sc/publications/ies2026-deployability-gap" }]
+    },
     {
       type: "paper", year: 2026,
       statusJa: "採択（登壇予定）", status: "To appear",
