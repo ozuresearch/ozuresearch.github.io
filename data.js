@@ -33,6 +33,7 @@ window.OZU_DATA = {
       url: "https://ozu-inc.com/aKQSenKI",
       image: "assets/products/decku.png",
       links: [
+        { label: "decku-production", url: "https://decku-production.web.app/" },
         { labelJa: "ニュースリリース", label: "News release", url: "https://ozu-inc.com/aKQSenKI" }
       ]
     },
