@@ -25,6 +25,18 @@
 window.OZU_DATA = {
   products: [
     {
+      name: "DECKU — AI briefing-to-storyboard tool",
+      nameJa: "映像制作向けAIツール「DECKU」",
+      dateJa: "2026年9月18日リリース", date: "Released September 18, 2026",
+      summaryJa: "ブリーフィング資料を入れるだけで、企画書のたたき台ができる映像制作向けAIツール。演出方針の案出しからカット割り、企画書の書き出しまでをひとつの流れで実行。アップロードした資料をAIが自動整理し、演出方針の案を複数提案。方針が決まればカット割りを自動作成し、PPTX・PDF・JSONで書き出せる。",
+      summary: "An AI tool for video production that turns briefing materials into a first-draft proposal in one flow — from directional proposals through cut breakdowns to a written proposal deck. It automatically organizes uploaded materials, proposes multiple directional options, builds a cut breakdown once a direction is set, and exports as PPTX, PDF, or JSON.",
+      url: "https://ozu-inc.com/aKQSenKI",
+      image: "assets/products/decku.png",
+      links: [
+        { labelJa: "ニュースリリース", label: "News release", url: "https://ozu-inc.com/aKQSenKI" }
+      ]
+    },
+    {
       name: "pacutto — AI cut-sheet generator",
       nameJa: "カット表作成支援AIツール「ぱかっと」",
       dateJa: "2026年6月25日リリース", date: "Released June 25, 2026",
