@@ -2,11 +2,19 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="noindex">
 <title>OZU Research</title>
+<script src="/site.js"></script>
 <script>
+  // Old or mistyped URLs: /about -> /about/, /@takahashi -> /team/takahashi/, anything else -> top page.
   (function () {
-    var p = location.pathname.replace(/^\/+/, '').replace(/\/$/, '');
-    location.replace('/' + (p ? '#' + decodeURIComponent(p) : ''));
+    var here = location.pathname;
+    var target = /^\/en(\/|$)/.test(here) ? '/en/' : '/';
+    try {
+      var p = window.OZU_SITE.legacyPath(here);
+      if (p && p !== here) target = p;
+    } catch (e) {}
+    location.replace(target);
   })();
 </script>
 </head>
