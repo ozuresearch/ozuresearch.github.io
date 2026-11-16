@@ -1,0 +1,48 @@
+name: Build SEO pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - index.html
+      - data.js
+      - site.js
+      - scripts/**
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-seo
+  cancel-in-progress: false
+
+jobs:
+  build:
+    # Loop guard: skip pushes made by the bot or carrying the regenerate message.
+    if: >-
+      github.actor != 'github-actions[bot]' &&
+      !startsWith(github.event.head_commit.message, 'Regenerate SEO pages')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Generate pages, sitemap.xml and llms.txt
+        run: node scripts/build.mjs
+
+      - name: Commit and push changes
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "Regenerate SEO pages"
+            # Someone may have pushed meanwhile: rebase once, then push.
+            git push || (git pull --rebase origin main && git push)
+          else
+            echo "No changes to commit."
+          fi

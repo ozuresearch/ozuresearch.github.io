@@ -1,8 +1,9 @@
 /* OZU Research — site data.
    ここに追記するだけでサイトに反映されます（index.html の編集は不要）。
+   追記したら node scripts/build.mjs を実行してください（各ページの HTML・sitemap.xml・llms.txt を更新します）。
 
    members: {
-     handle: "takahashi",              // URL は #@takahashi
+     handle: "takahashi",              // URL は /team/takahashi/（英語版 /en/team/takahashi/）
      name: "高橋 佑輔",                 // 日本語表示名
      nameEn: "Yusuke Takahashi",
      roleJa: "研究員", role: "Researcher",

@@ -1,0 +1,42 @@
+# OZU Research
+
+> OZU Research is the research and development lab of OZU Inc., operating from two sites, Tokyo and Surabaya. We research and build generative AI that can ship in commercial production (Production Survivability).
+
+OZU Research (by OZU Inc., 株式会社OZU) works on "Production Survivability": treating whether generative AI output can actually be delivered to a client as a measurable construct, then building tools that achieve it. It pairs working products with research, using real commercial projects as the testbed and publishing results at international conferences and in journals. It runs with Musashino University and an international team across Japan, Indonesia and Thailand.
+
+- Tokyo Lab: Croce Jingumae Bldg. 5F, 3-35-2 Jingumae, Shibuya-ku, Tokyo 150-0001, Japan
+- Surabaya Lab: SAW-10.01 Lab, Politeknik Elektronika Negeri Surabaya, Jl. Raya ITS, Keputih, Sukolilo, Surabaya, East Java 60111, Indonesia
+- Email: research@ozu-inc.com
+- Parent company: OZU Inc. (https://ozu-inc.com/)
+- Japanese is the default language at https://ozuresearch.github.io/; English pages live under https://ozuresearch.github.io/en/.
+
+## Pages
+
+- [About](https://ozuresearch.github.io/en/about/): OZU Research is an R&D organisation that takes generative AI from good-looking output to production that can actually be delivered, run with Musashino University by an international team across Japan, Indonesia and Thailand. Japanese: https://ozuresearch.github.io/about/
+- [Research](https://ozuresearch.github.io/en/research/): OZU Research projects: Production Survivability, which formalises whether generative AI output can ship commercially as a measurable construct, and Constraint-Based Direction Generation for professional-quality video production. Japanese: https://ozuresearch.github.io/research/
+- [Team](https://ozuresearch.github.io/en/team/): The OZU Research team, working from Tokyo and Surabaya: Yoshiaki Shinjo, Yusuke Takahashi, PhD, Takahiro Tamura, Obed Christian, Achmad Zahir Wajdi. Japanese: https://ozuresearch.github.io/team/
+- [Publications](https://ozuresearch.github.io/en/publications/): Papers, talks and articles from OZU Research: research on making generative AI ship in commercial production, presented at international conferences and in journals. Japanese: https://ozuresearch.github.io/publications/
+- [Products](https://ozuresearch.github.io/en/products/): Products from OZU Research: DECKU — AI briefing-to-storyboard tool; pacutto — AI cut-sheet generator; OkiGO — morning habit app; OASIS PASS — restroom queue… Japanese: https://ozuresearch.github.io/products/
+- [Locations](https://ozuresearch.github.io/en/locations/): OZU Research sites: Tokyo Lab (Croce Jingumae Bldg. 5F, 3-35-2 Jingumae, Shibuya-ku, Tokyo) and Surabaya Lab (Politeknik Elektronika Negeri Surabaya, Surabaya, Indonesia). Japanese: https://ozuresearch.github.io/locations/
+- [Contact](https://ozuresearch.github.io/en/contact/): Send us a question, sign up for the newsletter, or apply to OZU Research. Japanese: https://ozuresearch.github.io/contact/
+
+## Publications
+
+- [Almost Nobody Can Deliver, While Everyone Can Generate: The Deployability Gap in AI Video Production](https://aix.sc/publications/ies2026-deployability-gap): IES 2026, Yogyakarta, Indonesia (To appear). Takahiro Tamura, Yoshiaki Shinjo, Yusuke Takahashi, PhD, Asako Uraki. Anyone can now generate professional-looking video from a prompt; almost no one can deliver it to a paying client.
+- [Closing the Loop: Verdict-Informed Stopping for Autonomous Brand-Consistent Image Revision](https://aix.sc/publications/icast2026-closing-the-loop): ICAST 2026, Surabaya, Indonesia, October 9–10, 2026 (To appear). Achmad Zahir Wajdi, Obed Christian, Takahiro Tamura, Yoshiaki Shinjo, Yusuke Takahashi, PhD, Asako Uraki. Autonomous revision loops for generative image production face a control problem: given a per-dimension quality verdict after each attempt, when should the system stop and accept the output, and when should it spend more of the generation budget on another correction cycle?
+- [Will It Ship? Production Survivability of Generative AI for Commercial Video](https://aix.sc/publications/ies2026-will-it-ship): IES 2026, Yogyakarta, Indonesia, August 1–3, 2026 (Presented). Obed Christian, Achmad Zahir Wajdi, Takahiro Tamura, Yoshiaki Shinjo, Yusuke Takahashi, PhD, Asako Uraki. An embedded case study comparing 11 generative models (4 image, 7 video) against seven short videos actually delivered for a commercial body-care campaign.
+
+## Products
+
+- [DECKU — AI briefing-to-storyboard tool](https://decku-production.web.app/): Released September 18, 2026. An AI tool for video production that turns briefing materials into a first-draft proposal in one flow — from directional proposals through cut breakdowns to a written proposal deck.
+- [pacutto — AI cut-sheet generator](https://www.pacutto.com/): Released June 25, 2026. Upload a video and AI drafts the cut sheet in minutes, cutting the time from review to edit by about 60%.
+- [OkiGO — morning habit app](https://okigo.jp/): Released April 6, 2026. A habit app built on loss aversion from behavioural economics, so habits do not depend on willpower.
+- [OASIS PASS — restroom queue solution](https://ozu-inc.com/news/20250820): Released August 20, 2025. An integrated solution to restroom queues at outdoor festivals and large events, combining real-time congestion visualisation with on-site guidance, dynamically priced premium restrooms, and a dashboard that manages free restrooms in one place.
+
+## Team
+
+- [Yoshiaki Shinjo](https://ozuresearch.github.io/en/team/shinjo/): Head of Research, OZU Research. Head of Research at OZU Research and CEO of OZU Inc. (Shibuya, Tokyo). Japanese: https://ozuresearch.github.io/team/shinjo/
+- [Yusuke Takahashi, PhD](https://ozuresearch.github.io/en/team/takahashi/): Head of Research, OZU Research. Co-Head of Research at OZU Research. Japanese: https://ozuresearch.github.io/team/takahashi/
+- [Takahiro Tamura](https://ozuresearch.github.io/en/team/tamura/): Principal Researcher. Principal Researcher at OZU Research. Japanese: https://ozuresearch.github.io/team/tamura/
+- [Obed Christian](https://ozuresearch.github.io/en/team/obed/): Researcher. Researcher at OZU Research. Japanese: https://ozuresearch.github.io/team/obed/
+- [Achmad Zahir Wajdi](https://ozuresearch.github.io/en/team/wajdi/): Researcher. Researcher at OZU Research. Japanese: https://ozuresearch.github.io/team/wajdi/
