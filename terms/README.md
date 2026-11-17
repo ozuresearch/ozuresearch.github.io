@@ -22,14 +22,20 @@
 - 製品名：`co-production-manager`（OZU Co Production Manager）。製品が増えたら、同じ形でファイルを足してください。
 - 言語：`ja`（日本語・正本）/ `en` / `id`。表示側は、その言語のファイルを読めなければ日本語版を表示します。
 
-## 現在のファイル
+## 公開ページ
 
-| ファイル | 表示するページ |
+Markdown を書き換えるだけで、次のページに反映されます（ビルド不要）。ページは `/assets/legal.js` が Markdown を読み込んで表示します。
+
+| ページ | 表示するファイル |
 |---|---|
-| `privacy.{ja,en,id}.md` | co-production-manager-web の `/privacy` |
-| `terms.co-production-manager.{ja,en,id}.md` | co-production-manager-web の `/terms` |
-| `sla.co-production-manager.{ja,en,id}.md` | （表示ページは未作成） |
-| `sctl.co-production-manager.{ja,en,id}.md` | （表示ページは未作成） |
+| https://ozuresearch.github.io/terms/ | `terms.<製品>.<言語>.md` |
+| https://ozuresearch.github.io/privacy/ | `privacy.<言語>.md` |
+| https://ozuresearch.github.io/sla/ | `sla.<製品>.<言語>.md` |
+| https://ozuresearch.github.io/sctl/ | `sctl.<製品>.<言語>.md` |
+
+- 言語：`?lang=ja` / `en` / `id`。指定がなければ、サイトで選んだ言語、次にブラウザの言語。
+- 製品：`?product=co-production-manager`。指定がなければ最初の製品。製品を足したら、`/assets/legal.js` の `PRODUCTS` にも追加してください。
+- co-production-manager-web の `/terms`・`/privacy` も、同じ Markdown を読んで表示しています。
 
 ## 書き方
 
